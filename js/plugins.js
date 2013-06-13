@@ -28,6 +28,6 @@
 //	$("article header blockquote").fitText(2.6);
 	$(document).ready(function(){
 		// Resize videos
-		$(".content").fitVids();
+		//$(".content").fitVids();
 	})
 })(jQuery);

@@ -130,12 +130,15 @@
 					<div id="portfolioBox">
 						<i class="icon-left-open inset">&nbsp;</i>
 						<div class="frame">
-							<a class="project" href="#portfolioBox"><img src="img/showcase/thumb_uniforge.png" alt="UniForge.com"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_woh.png" alt="Women of Hope"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_ipk.png" alt="Ideal Protein Kanata"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_bbl.png" alt="Black Belt Leadership"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_madguild.png" alt="UniForge.com"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_bbx.png" alt="Black Belt Excellence"></a>
+							<a class="project" href="#portfolioBox"><img src="img/showcase/thumb_uniforge.jpg" alt="UniForge.com"></a>
+							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_woh.jpg" alt="Women of Hope"></a>
+							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_ipk.jpg" alt="Ideal Protein Kanata"></a>
+							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_bbl.jpg" alt="Black Belt Leadership"></a>
+							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_madguild.jpg" alt="UniForge.com"></a>
+							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_bbx.jpg" alt="Black Belt Excellence"></a>
+							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_topthisrules.jpg" alt="Top This! Rulebook"></a>
+							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_topthisbox.jpg" alt="Top This! Box"></a>
+							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_frankendie.jpg" alt="FrankenDie"></a>
 						</div>
 						<i class="icon-right-open inset">&nbsp;</i>
 					</div>

@@ -96,7 +96,15 @@
 		$("#portfolioBox .icon-right-open").click(function(){
 			nextSlide();
 		});
-
+		$("body").keydown(function (e) {
+			var code=(e.keyCode ? e.keyCode : e.which);
+			console.log(code);
+			if(code==37){
+				prevSlide();
+			} else if (code==39){
+				nextSlide();
+			}
+		});
 
 
 		// Hides the logo when on the "About Me" section, and show it otherwise
@@ -111,13 +119,21 @@
 			}
 		}, 750);
 
+		// Expand portfolio projects
+		$("a[rel*=leanModal]").leanModal( { top : -50, overlay : 0.7 } );
 
 		// Scrolls smoothly from the top menu
 		$('a[href^="#"]').click(function(){
-			var targetId = $(this).attr("href");
-			$("body,html").animate({ scrollTop: $(targetId).offset().top }, "slow");
-			console.log( $(targetId).offset().top );
-			return false;
+			// Check if the click was on a portfolio project
+			if ( $(this).hasClass("project") ) {
+				console.log("modal");
+				return false;
+			} else {
+				var targetId = $(this).attr("href");
+				$("body,html").animate({ scrollTop: $(targetId).offset().top - 60 }, "slow");
+				console.log( $(targetId).offset().top );
+				return false;
+			}
 		});
 
 
