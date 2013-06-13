@@ -77,20 +77,20 @@ $buffer: 70px * $factor;
 
 @mixin moveAnimate ($direction, $x, $y) {
 	@-webkit-keyframes move#{$direction} {
+		70% { @include move($x, $y); }
 		99% { transform: opacity(0); z-index: 1; }
-		100% { @include move($x, $y); }
 	}
 	@-moz-keyframes move#{$direction} {
+		70% { @include move($x, $y); }
 		99% { transform: opacity(0); z-index: 1; }
-		100% { @include move($x, $y); }
 	}
 	@-o-keyframes move#{$direction} {
+		70% { @include move($x, $y); }
 		99% { transform: opacity(0); z-index: 1; }
-		100% { @include move($x, $y); }
 	}
 	@keyframes move#{$direction} {
+		70% { @include move($x, $y); }
 		99% { transform: opacity(0); z-index: 1; }
-		100% { @include move($x, $y); }
 	}
 }
 
@@ -652,6 +652,58 @@ div[role="main"] .wrap aside { text-align: right;
 		position: relative; 
 		max-width: 100%;
 
+		.details section {
+			display: none;
+			position: relative;
+			width: 90%;
+			padding: 3em 3em 14em;
+			border-radius: 10px;
+			box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.5);
+			background: #fff url("../img/bg_white.png") repeat 0 0;
+			overflow: hidden;
+
+			img { border: 1px solid #3f3f3f; }
+
+			header {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				padding: 2.5em 0px 1.5em;
+				text-align: center;
+				text-shadow: none;
+				background: #3F3F3F url('../img/bg_footer.png') repeat 0 0;
+
+				h1, h2 {
+					font-size: 1.5em;
+					color: #fff;
+
+					a {
+						display: block;
+						font-size: 65%;
+						font-weight: 400;
+						text-shadow: none;
+						color: #E464A0;
+					}
+				}
+
+				ul {
+					display: inline-block;
+					margin: 0;
+					padding: 0;
+
+					li {
+						display: inline-block;
+						float: left;
+						margin: 0;
+						padding: 0.25em 1em;
+						list-style: none;
+						color: #aaa;
+					}
+				}
+			}
+		}
+
 		.icon-left-open,
 		.icon-right-open {
 			position: absolute;
@@ -970,6 +1022,17 @@ body.i8 {
 
 
 /* MISC + OVERRIDES *********/
+#lean_overlay {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width:100%;
+    height:100%;
+    background: #000;
+    z-index:100;
+}
+
 div.collapse { max-height: 1px; @include transition (all 0.5s); }
 div.expand { max-height: 5000px; @include transition (all 2s); }
 a.collapse { line-height: 24px; }
@@ -1037,8 +1100,8 @@ div.break { display: block;
 
 
 /* ANIMATIONS *********/
-.prevSlide { @include animate (moveSlideLeft, 0.3s, 0s); }
-.nextSlide { @include animate (moveSlideRight, 0.3s, 0s); }
+.prevSlide { @include animate (moveSlideLeft, 0.4s, 0s); }
+.nextSlide { @include animate (moveSlideRight, 0.4s, 0s); }
 .moveLeft { @include animate (moveLeft, 0.4s, 0s); }
 .moveRight { @include animate (moveRight, 0.4s, 0.20s); }
 .moveUp { @include animate (moveUp, 0.4s, 0.30s); }

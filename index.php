@@ -130,17 +130,140 @@
 					<div id="portfolioBox">
 						<i class="icon-left-open inset">&nbsp;</i>
 						<div class="frame">
-							<a class="project" href="#portfolioBox"><img src="img/showcase/thumb_uniforge.jpg" alt="UniForge.com"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_woh.jpg" alt="Women of Hope"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_ipk.jpg" alt="Ideal Protein Kanata"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_bbl.jpg" alt="Black Belt Leadership"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_madguild.jpg" alt="UniForge.com"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_bbx.jpg" alt="Black Belt Excellence"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_topthisrules.jpg" alt="Top This! Rulebook"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_topthisbox.jpg" alt="Top This! Box"></a>
-							<a class="hidden project" href="#portfolioBox"><img src="img/showcase/thumb_frankendie.jpg" alt="FrankenDie"></a>
+							<a rel="leanModal" class="project" href="#projectUniForge"><img src="img/showcase/thumb_uniforge.jpg" alt="UniForge.com" /></a>
+							<a rel="leanModal" class="hidden project" href="#projectWOH"><img src="img/showcase/thumb_woh.jpg" alt="Women of Hope" /></a>
+							<a rel="leanModal" class="hidden project" href="#projectIPK"><img src="img/showcase/thumb_ipk.jpg" alt="Ideal Protein Kanata" /></a>
+							<a rel="leanModal" class="hidden project" href="#projectBBL"><img src="img/showcase/thumb_bbl.jpg" alt="Black Belt Leadership" /></a>
+							<a rel="leanModal" class="hidden project" href="#projectMadGuild"><img src="img/showcase/thumb_madguild.jpg" alt="MadGuild.com" /></a>
+							<a rel="leanModal" class="hidden project" href="#projectBBX"><img src="img/showcase/thumb_bbx.jpg" alt="Black Belt Excellence" /></a>
+							<a rel="leanModal" class="hidden project" href="#projectTopThisBox"><img src="img/showcase/thumb_topthisbox.jpg" alt="Top This! Box" /></a>
+							<a rel="leanModal" class="hidden project" href="#projectTopThisRules"><img src="img/showcase/thumb_topthisrules.jpg" alt="Top This! Rulebook" /></a>
+							<a rel="leanModal" class="hidden project" href="#projectFrankenDieSite"><img src="img/showcase/thumb_frankendiesite.jpg" alt="FrankenDie Website" /></a>
+							<a rel="leanModal" class="hidden project" href="#projectFrankenDie"><img src="img/showcase/thumb_frankendie.jpg" alt="FrankenDie Components" /></a>
 						</div>
 						<i class="icon-right-open inset">&nbsp;</i>
+
+						<!-- Portfolio Project Details -->
+						<div class="details">
+							<section id="projectUniForge">
+								<header>
+									<h1>UniForge Inc. <a href="http://uniforge.com">[uniforge.com]</a></h1>
+									<ul class="services">
+										<li>Branding</li>
+										<li>Design</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_uniforge.jpg" alt="UniForge Inc's Website" />
+							</section>
+
+							<section id="projectWOH">
+								<header>
+									<h1>Women of Hope <a href="http://www.femmesdespoir.com/">[femmesdespoir.com]</a></h1>
+									<ul class="services">
+										<li>Design</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_woh.jpg" alt="Website for the Women of Hope" />
+							</section>
+
+							<section id="projectIPK">
+								<header>
+									<h1>Ideal Protein Kanata <a href="http://idealproteinkanata.com">[idealproteinkanata.com]</a></h1>
+									<ul class="services">
+										<li>Branding</li>
+										<li>Design</li>
+										<li>Front-end coding</li>
+										<li>Wordpress Template coding</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_ipk.jpg" alt="Website for Ideal Protein Kanata" />
+							</section>
+
+							<section id="projectBBL">
+								<header>
+									<h1>Black Belt Leadership <a href="http://blackbeltleadership.com">[blackbeltleadership.com]</a></h1>
+									<ul class="services">
+										<li>Branding</li>
+										<li>Design</li>
+										<li>Front-end coding</li>
+										<li>Wordpress Template coding</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_bbl.jpg" alt="Website for Black Belt Leadership" />
+							</section>
+
+							<section id="projectMadGuild">
+								<header>
+									<h1>The Mad Scientists' Guild <a href="http://madguild.com">[madguild.com]</a></h1>
+									<ul class="services">
+										<li>Strategy</li>
+										<li>Branding</li>
+										<li>Design</li>
+										<li>Front-end coding</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_madguild.jpg" alt="Website for the Mad Scientists' Guild" />
+							</section>
+
+							<section id="projectBBX">
+								<header>
+									<h1>Black Belt Excellence <a href="http://blackbeltexcellence.com">[blackbeltexcellence.com]</a></h1>
+									<ul class="services">
+										<li>Branding</li>
+										<li>Design</li>
+										<li>Front-end coding</li>
+										<li>Wordpress Template coding</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_bbx.jpg" alt="Website for Black Belt Excellence" />
+							</section>
+
+							<section id="projectTopThisBox">
+								<header>
+									<h1>Top This! A Pizza Flicking Game <a href="http://playtopthis.com">[playtopthis.com]</a></h1>
+									<ul class="services">
+										<li>Branding</li>
+										<li>Graphic Design</li>
+										<li>Print Prep</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_topthisbox.jpg" alt="Back of the box for the game: Top This!" />
+							</section>
+
+							<section id="projectTopThisRules">
+								<header>
+									<h1>Top This! A Pizza Flicking Game <a href="http://playtopthis.com">[playtopthis.com]</a></h1>
+									<ul class="services">
+										<li>Branding</li>
+										<li>Graphic Design</li>
+										<li>Print Prep</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_topthisrules.jpg" alt="Rulebook for the game: Top This!" />
+							</section>
+
+							<section id="projectFrankenDieSite">
+								<header>
+									<h1>FrankenDie: The Party Game for the Madly Insane <a href="http://frankendie.com">[frankendie.com]</a></h1>
+									<ul class="services">
+										<li>Design</li>
+										<li>Front-end coding</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_frankendiesite.jpg" alt="Website for the game: FrankenDie" />
+							</section>
+
+							<section id="projectFrankenDie">
+								<header>
+									<h1>FrankenDie: The Party Game for the Madly Insane <a href="http://frankendie.com">[frankendie.com]</a></h1>
+									<ul class="services">
+										<li>Graphic Design</li>
+										<li>Print Prep</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_frankendie.jpg" alt="Components from the game: FrankenDie" />
+							</section>
+						</div>
 					</div>
 
 					<h2>Let's Start a Love Affair <i class="icon-heart">&nbsp;</i></h2>
@@ -408,12 +531,12 @@
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
-	<script src="js/main.js"></script>
 	<script src="js/fitvids.js"></script>
 	<script src="js/touchSwipe.min.js"></script>
-	
-	<!-- Load this last. Run all jQuery from within wrapper -->
+	<script src="js/leanModal.min.js"></script>	
+
 	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
 	
 	<?php include_once('inc/ga.php'); ?>
 </body>
