@@ -233,7 +233,7 @@ div[role="main"] .wrap aside p { color: #7F7F7F; }
 /* FORMS *********/
 input[type="text"], textarea { display: block; position: relative; width: 87%; min-width: 280px; max-width: 350px; margin: 0 20px 5px 0; padding: 10px 15px 8px; font-size: 17px; font-family: "proxima-nova", sans-serif; color: #111; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85); background: #d4d4d4; border: none; border-top: 2px solid rgba(0, 0, 0, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.35); border-radius: 8px; -webkit-border-radius: 8px; -moz-border-radius: 8px; -o-border-radius: 8px; }
 
-label, input[type=button], input[type=submit], button { cursor: pointer; }
+label, input[type=button], input[type=submit], button { cursor: pointer; font-family: "proxima-nova", sans-serif !important; }
 
 form .messageBox { float: left; padding: 20px 0; }
 form .success { color: #CDD255; }

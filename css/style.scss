@@ -817,7 +817,7 @@ textarea {
 	@include round();
 }
 
-label, input[type=button], input[type=submit], button { cursor: pointer; }
+label, input[type=button], input[type=submit], button { cursor: pointer; font-family: "proxima-nova", sans-serif !important; }
 form {
 	.messageBox { float: left; padding: 20px 0; }
 
