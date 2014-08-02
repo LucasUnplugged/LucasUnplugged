@@ -73,7 +73,7 @@
 								<ul class="flush">
 								<li>High-impact, user-centric designs</li>
 								<li>Efficient HTML5, CSS3 / SASS, and Javascript / jQuery code</li>
-								<li>Custom CMS theme development</li>
+								<li>Custom CMS theme development (Wordpress &amp; Drupal)</li>
 								<li>Cross-browser and cross-platform responsive design</li>
 								</ul>
 								<div class="btnGroup"><a href="#cv" class="btn">View CV</a><a href="#meSlide" class="btn slideBtn">Learn more</a></div>
