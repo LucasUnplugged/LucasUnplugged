@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Web Designer &amp; Developer : Lucas Castro : Responsive Design, HTML5, WordPress, Conversion Rates</title>
+	<title>Web Designer &amp; Developer : Lucas Castro : Responsive Design, Custom WordPress Themes, HTML5, CSS3</title>
 	<meta name="description" content="Lucas Castro is a Web Designer and Developer specializing in Responsive Design, HTML5, CSS3, and custom WordPress themes.">
 	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
 	<meta name="viewport" content="width=device-width, initial-scale = 1.0">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<link rel="apple-touch-icon" href="http://ninelime.com/lucas/main//apple-touch-icon.png">
-	<link rel="shortcut icon" href="http://ninelime.com/lucas/main/favicon.ico" />
+	<link rel="apple-touch-icon" href="http://lucasunplugged.com/apple-touch-icon.png">
+	<link rel="shortcut icon" href="http://lucasunplugged.com/favicon.ico" />
 	<!--[if IE]><![endif]-->
 	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css?x=<?php echo rand(0,100); ?>">
 
 	<!-- Typekit Fonts -->
-	<script type="text/javascript" src="//use.typekit.net/byn6swe.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<script src="//use.typekit.net/byn6swe.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
 
 	<script src="js/modernizr-2.6.2.min.js"></script>
 </head>
@@ -27,6 +27,8 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <body>
 <!--<![endif]-->
+
+	<?php include_once('inc/ga.php'); ?>
 
 	<header role="banner" class="dark">
 		<div class="wrap">
@@ -70,12 +72,11 @@
 								<h2>Specialties</h2>
 								<ul class="flush">
 								<li>High-impact, user-centric designs</li>
-								<li>Efficient HTML5 + CSS3 code</li>
-								<li>Responsive design</li>
+								<li>Efficient HTML5, CSS3 / SASS, and Javascript / jQuery code</li>
 								<li>Custom CMS theme development</li>
-								<li>Improving conversion rates</li>
+								<li>Cross-browser and cross-platform responsive design</li>
 								</ul>
-								<div class="btnGroup"><a href="#cv" class="btn">View CV</a><a href="#meSlide" class="btn slideBtn">Learn more »</a></div>
+								<div class="btnGroup"><a href="#cv" class="btn">View CV</a><a href="#meSlide" class="btn slideBtn">Learn more</a></div>
 							</div>
 						</div>
 						<div class="animate hidden">
@@ -85,15 +86,14 @@
 								<p>Everything I know as a designer, developer, and entrepreneur I learned by getting my hands dirty. I believe we embrace continual learning only when we are passionate about our work, and I am always eager to evolve my expertise in order to adapt to this rapidly-changing field.</p>
 							</div>
 							<div class="padB0-7">
-								<h2>New Favourite Techs</h2>
+								<h2>Favourite New Techs</h2>
 								<ul class="flush">
-								<li>Responsive Design</li>
-								<li>SASS / SCSS</li>
+								<li>Node.js</li>
+								<li>Meteor</li>
 								<li>A/B Testing</li>
-								<li>Git-base Source Control</li>
 								<li>Heatmap and User Tracking Analytics</li>
 								</ul>
-								<div class="btnGroup"><a href="#portfolio" class="btn">Browse Portfolio</a><a href="#meSlide" class="btn slideBtn">Learn more »</a></div>
+								<div class="btnGroup"><a href="#portfolio" class="btn">Browse Portfolio</a><a href="#meSlide" class="btn slideBtn">Learn more</a></div>
 							</div>
 						</div>
 						<div class="animate hidden">
@@ -128,23 +128,74 @@
 			<div class="wrap centre">
 				<section class="grid10 marginRL1 padSolo padT1 padB1-5">
 					<div id="portfolioBox">
+						<ul>
+							<li><a href="img/showcase/full_uf.jpg" data-imagelightbox="portfolio"><img src="img/showcase/thumb_uf.jpg" alt="UniForge Inc." /></a></li>
+							<li><a href="img/showcase/full_mint.jpg" data-imagelightbox="portfolio"><img src="img/showcase/thumb_mint.jpg" alt="Canadian Gold Reserves (RCM)" /></a></li>
+							<li><a href="img/showcase/full_ro.jpg" data-imagelightbox="portfolio"><img src="img/showcase/thumb_ro.jpg" alt="Rideau Optometric" /></a></li>
+							<li><a href="img/showcase/full_cheo.jpg" data-imagelightbox="portfolio"><img src="img/showcase/thumb_cheo.jpg" alt="Ontario Centre of Excellence for Child and Youth Mental Health" /></a></li>
+							<li><a href="img/showcase/full_jlp.jpg" data-imagelightbox="portfolio"><img src="img/showcase/thumb_jlp.jpg" alt="Joint Learning Program" /></a></li>
+							<li><a href="img/showcase/full_cse.jpg" data-imagelightbox="portfolio"><img src="img/showcase/thumb_cse.jpg" alt="CSE Games" /></a></li>
+<?php /*
+							<li><a href="img/showcase/full_kmb.jpg" data-imagelightbox="portfolio"><img src="img/showcase/thumb_kmb.jpg" alt="Knowledge Mobilization (OCECYMH)" /></a></li>
+*/ ?>							
+							<li><a href="img/showcase/full_marcom.jpg" data-imagelightbox="portfolio"><img src="img/showcase/thumb_marcom.jpg" alt="MARCOM.ca" /></a></li>
+							<li><a href="img/showcase/full_woh2.jpg" data-imagelightbox="portfolio"><img src="img/showcase/thumb_woh2.jpg" alt="Women of Hope" /></a></li>
+ 						</ul>
+
+<?php /*					
 						<i class="icon-left-open inset">&nbsp;</i>
 						<div class="frame">
-							<a rel="leanModal" class="project" href="#projectUniForge"><img src="img/showcase/thumb_uniforge.jpg" alt="UniForge.com" /></a>
-							<a rel="leanModal" class="hidden project" href="#projectWOH"><img src="img/showcase/thumb_woh.jpg" alt="Women of Hope" /></a>
-							<a rel="leanModal" class="hidden project" href="#projectIPK"><img src="img/showcase/thumb_ipk.jpg" alt="Ideal Protein Kanata" /></a>
-							<a rel="leanModal" class="hidden project" href="#projectBBL"><img src="img/showcase/thumb_bbl.jpg" alt="Black Belt Leadership" /></a>
-							<a rel="leanModal" class="hidden project" href="#projectMadGuild"><img src="img/showcase/thumb_madguild.jpg" alt="MadGuild.com" /></a>
-							<a rel="leanModal" class="hidden project" href="#projectBBX"><img src="img/showcase/thumb_bbx.jpg" alt="Black Belt Excellence" /></a>
-							<a rel="leanModal" class="hidden project" href="#projectTopThisBox"><img src="img/showcase/thumb_topthisbox.jpg" alt="Top This! Box" /></a>
-							<a rel="leanModal" class="hidden project" href="#projectTopThisRules"><img src="img/showcase/thumb_topthisrules.jpg" alt="Top This! Rulebook" /></a>
-							<a rel="leanModal" class="hidden project" href="#projectFrankenDieSite"><img src="img/showcase/thumb_frankendiesite.jpg" alt="FrankenDie Website" /></a>
-							<a rel="leanModal" class="hidden project" href="#projectFrankenDie"><img src="img/showcase/thumb_frankendie.jpg" alt="FrankenDie Components" /></a>
+							<a class="leanModal project active" href="#projectWOH"><img src="img/showcase/thumb_woh2.jpg" alt="Women of Hope" /></a>
+							<a class="leanModal project right" href="#projectCHEO"><img src="img/showcase/thumb_cheo.jpg" alt="Ontario Centre of Excellence for Child and Youth Mental Health" /></a>
+							<a class="leanModal project right" href="#projectFEC"><img src="img/showcase/thumb_fec.jpg" alt="Focus Eye Centre" /></a>
+							<a class="leanModal project right" href="#projectUniForge"><img src="img/showcase/thumb_uniforge.jpg" alt="UniForge.com" /></a>
+							<a class="leanModal project right" href="#projectIPK"><img src="img/showcase/thumb_ipk.jpg" alt="Ideal Protein Kanata" /></a>
+							<a class="leanModal project right" href="#projectBBL"><img src="img/showcase/thumb_bbl.jpg" alt="Black Belt Leadership" /></a>
+							<a class="leanModal project right" href="#projectMadGuild"><img src="img/showcase/thumb_madguild.jpg" alt="MadGuild.com" /></a>
+							<a class="leanModal project right" href="#projectBBX"><img src="img/showcase/thumb_bbx.jpg" alt="Black Belt Excellence" /></a>
+							<a class="leanModal project right" href="#projectFrankenDieSite"><img src="img/showcase/thumb_frankendiesite.jpg" alt="FrankenDie Website" /></a>
 						</div>
 						<i class="icon-right-open inset">&nbsp;</i>
+						
+						<small class="tip"><strong>Tip:</strong> Use the arrow keys to navigate through portforlio.</small>
 
 						<!-- Portfolio Project Details -->
 						<div class="details">
+							<section id="projectWOH">
+								<header>
+									<h1>Women of Hope <a href="http://www.femmesdespoir.com/">[femmesdespoir.com]</a></h1>
+									<ul class="services">
+										<li>Design</li>
+										<li>Front-end coding (upcoming)</li>
+										<li>Wordpress Template coding (upcoming)</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_woh2.jpg" alt="Website for the Women of Hope" />
+							</section>
+
+							<section id="projectCHEO">
+								<header>
+									<h1>Ontario Centre of Excellence for Child and Youth Mental Health <a href="http://www.excellenceforchildandyouth.ca/">[excellenceforchildandyouth.ca]</a></h1>
+									<ul class="services">
+										<li>Design</li>
+										<li>Theme reskinning</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_cheo.jpg" alt="Website for the Ontario Centre of Excellence for Child and Youth Mental Health" />
+							</section>
+
+							<section id="projectFEC">
+								<header>
+									<h1>Focus Eye Centre <a href="http://focuseye.com/">[focuseye.com]</a></h1>
+									<ul class="services">
+										<li>Design (in-progress)</li>
+										<li>Front-end coding (upcoming)</li>
+										<li>Wordpress Template coding (upcoming)</li>
+									</ul>
+								</header>
+								<img src="img/showcase/full_fec.jpg" alt="Website for Focus Eye Centre" />
+							</section>
+
 							<section id="projectUniForge">
 								<header>
 									<h1>UniForge Inc. <a href="http://uniforge.com">[uniforge.com]</a></h1>
@@ -154,16 +205,6 @@
 									</ul>
 								</header>
 								<img src="img/showcase/full_uniforge.jpg" alt="UniForge Inc's Website" />
-							</section>
-
-							<section id="projectWOH">
-								<header>
-									<h1>Women of Hope <a href="http://www.femmesdespoir.com/">[femmesdespoir.com]</a></h1>
-									<ul class="services">
-										<li>Design</li>
-									</ul>
-								</header>
-								<img src="img/showcase/full_woh.jpg" alt="Website for the Women of Hope" />
 							</section>
 
 							<section id="projectIPK">
@@ -218,30 +259,6 @@
 								<img src="img/showcase/full_bbx.jpg" alt="Website for Black Belt Excellence" />
 							</section>
 
-							<section id="projectTopThisBox">
-								<header>
-									<h1>Top This! A Pizza Flicking Game <a href="http://playtopthis.com">[playtopthis.com]</a></h1>
-									<ul class="services">
-										<li>Branding</li>
-										<li>Graphic Design</li>
-										<li>Print Prep</li>
-									</ul>
-								</header>
-								<img src="img/showcase/full_topthisbox.jpg" alt="Back of the box for the game: Top This!" />
-							</section>
-
-							<section id="projectTopThisRules">
-								<header>
-									<h1>Top This! A Pizza Flicking Game <a href="http://playtopthis.com">[playtopthis.com]</a></h1>
-									<ul class="services">
-										<li>Branding</li>
-										<li>Graphic Design</li>
-										<li>Print Prep</li>
-									</ul>
-								</header>
-								<img src="img/showcase/full_topthisrules.jpg" alt="Rulebook for the game: Top This!" />
-							</section>
-
 							<section id="projectFrankenDieSite">
 								<header>
 									<h1>FrankenDie: The Party Game for the Madly Insane <a href="http://frankendie.com">[frankendie.com]</a></h1>
@@ -253,21 +270,12 @@
 								<img src="img/showcase/full_frankendiesite.jpg" alt="Website for the game: FrankenDie" />
 							</section>
 
-							<section id="projectFrankenDie">
-								<header>
-									<h1>FrankenDie: The Party Game for the Madly Insane <a href="http://frankendie.com">[frankendie.com]</a></h1>
-									<ul class="services">
-										<li>Graphic Design</li>
-										<li>Print Prep</li>
-									</ul>
-								</header>
-								<img src="img/showcase/full_frankendie.jpg" alt="Components from the game: FrankenDie" />
-							</section>
 						</div>
-					</div>
+*/ ?>
+					</div><!-- #portfolioBox -->
 
 					<h2>Let's Start a Love Affair <i class="icon-heart">&nbsp;</i></h2>
-					<p>A little passion goes a long way. And I <strong class="super">LOVE</strong> what I do. Let's discuss how you can get the most out of my lust for design.</p>
+					<p class="padLR1">A little passion goes a long way. And I <strong class="super">LOVE</strong> what I do. Let's discuss how you can get the most out of my lust for design.</p>
 					<div class="btnGroup"><a href="#you" class="btn">Start the conversation</a></div>
 				</section>
 			</div><!-- .wrap -->
@@ -310,7 +318,7 @@
 				<div class="shadowLight">&nbsp;</div>
 				<div class="wrap">
 				<div class="padRL1 centre">
-					<h1>Curriculum Vitae <a class="inset" href="dl/lucascastro_cv.pdf">PDF</a></h1>
+					<h1>Curriculum Vitae <a class="inset" href="dl/LucasCastro_CV.pdf">PDF</a></h1>
 					<blockquote>"Character is higher than intellect. A great soul will be strong to live as well as think." <address>&mdash;Ralph Waldo Emerson</address></blockquote>
 				</div> <!-- .padRL1 -->
 				</div><!-- .wrap -->
@@ -320,34 +328,26 @@
 				<div class="wrap">
 					<div class="grid4 marginL1 padR4G">
 						<h2>Profile</h2>
-						<p>Constantly devising effective enhancements and new means of improving conversions.</p>
 						<p>Passionate about quality execution and rigorous, proactive attention to detail.</p>
-						<p>Adept at self-managing and prioritizing projects to meet deadlines.</p>
+						<p>Voracious learner who loves sharing knowledge and facing new challenges.</p>
+						<p>Exceptional communicator who can devise, deliver, and support ideas with impact.</p>
 					</div>
 					<div id="skillsGrid" class="grid6 marginR1">
 						<h2>Skills</h2>
 						<div class="grid12 skills">
 							<div class="grid6 padR1G">
-								<h3 class="grid12"><span class="label">HTML</span>: Expert</h3>
-								<h3 class="grid12"><span class="label">CSS + SCSS</span>: Expert</h3>
-								<h3 class="grid12"><span class="label">Javascript</span>: Advanced</h3>
+								<h3 class="grid12"><span class="label">Adobe Suite</span>: Expert</h3>
+								<h3 class="grid12"><span class="label small">Responsive Design</span>: Expert</h3>
+								<h3 class="grid12"><span class="label">WordPress</span>: Expert</h3>
+								<h3 class="grid12"><span class="label">Drupal</span>: Intermediate</h3>
+								<h3 class="grid12"><span class="label small">AODA + WCAG 2.0</span>: Knowledgeable</h3>
 							</div>
 							<div class="grid6">
-								<h3 class="grid12"><span class="label">Git</span>: Intermediate</h3>
-								<h3 class="grid12"><span class="label">A/B Testing</span>: Knowledgeable</h3>
-								<h3 class="grid12"><span class="label">SEO</span>: Intermediate</h3>
-							</div>
-						</div>
-						<div class="grid12 skills">
-							<div class="grid6 padR1G">
-								<h3 class="grid12"><span class="label">jQuery</span>: Intermediate</h3>
+								<h3 class="grid12"><span class="label small">Semantic HTML5</span>: Expert</h3>
+								<h3 class="grid12"><span class="label">CSS3 + SASS</span>: Expert</h3>
+								<h3 class="grid12"><span class="label small">Javascript + jQuery</span>: Advanced</h3>
 								<h3 class="grid12"><span class="label">PHP</span>: Advanced</h3>
-								<h3 class="grid12"><span class="label">CMS</span>: Expert</h3>
-							</div>
-							<div class="grid6">
-								<h3 class="grid12"><span class="label">Photoshop</span>: Expert</h3>
-								<h3 class="grid12"><span class="label">Illustrator</span>: Expert</h3>
-								<h3 class="grid12"><span class="label">InDesign</span>: Advanced</h3>
+								<h3 class="grid12"><span class="label">Git</span>: Intermediate</h3>
 							</div>
 						</div>
 					</div>
@@ -368,20 +368,10 @@
 						<h4>Creative Unity Ltd.</h4>
 					</aside>
 					<div class="grid6 marginR1 details">
-						<p>Executed full project process, including wireframe conception, detailed visualization, and coding of front-end and back-end.</p>
-						<p>Coded and debugged extensively in HTML, CSS, PHP, Javascript, and jQuery, with a focus on customizing Content Management Systems and client usability.</p>
+						<p>Coded and debugged extensively in HTML5, CSS3 (and SASS), PHP, Javascript, and jQuery, with a focus on customizing CMSs for client usability.</p>						<p>Designed and coded elegant, user-centric responsive websites.</p>
 						<ul>
-							<li>Taught co-op students to code dynamic, PHP-based websites, using W3C standards and industry best practices.</li>
-						</ul>
-						<p>Optimized performance and user experience of client and internal websites.</p>
-						<p>Implemented modular coding practices to increase efficiency and reduce errors.</p>
-						<p>Introduced A/B testing to company’s service offerings.</p>
-						<p>Worked with SASS/SCSS and Git as part of daily workflow.</p>
-						<p>Created a custom event registration system from the ground up, including interface with the Moneris payment gateway.</p>
-						<ul>
-							<li>Defined logic structure and coded algorithms to implement client's complex pricing system for the event.</li>
-						</ul>
-					</div>
+							<li>Used Photoshop and Sketch to design with breakpoints in mind.							<li>Coded using Bootstrap, Foundation, and a self-built responsive framework.
+							<li>Ensured responsive, cross-browser and cross-platform compatibility.						</ul>						<p>Developed dozens of WordPress sites, including server setup, WordPress installation, crafting themes from scratch, and creating and integrating plugins.</p>						<p>Contributed to full project process, including client meetings, brainstorming, wireframe conception, brand and site design, and front-end/back-end development.</p>						<p>Established new processes to improve efficiency and teamwork.</p>						<ul>							<li>Introduced the use of SASS and Git as part of standard internal workflow.							<li>Researched and instituted the use of team communication and co-ordination applications, such as Slack and Trello.						</ul>					</div>
 				</section>
 				
 				<section>
@@ -397,14 +387,9 @@
 						<h4>Creative Unity Ltd.</h4>
 					</aside>
 					<div class="grid6 marginR1 details">
-						<p>Develop brand identity for clients, with their customer-base and intended audience in mind.</p>
-						<p>Used Adobe Photoshop and Sketch to design website mockups and prepare them for coding, with a focus on user experience and ease of implementation.</p>
-						<ul>
-							<li>Trained Junior Developers and co-op students on using Photoshop to create accessible designs, and to develop a brand and user experience that was in accordance with the client’s requirements.</li>
+						<p>Used Adobe Illustrator, Photoshop, and InDesign to create designs with a focus on user experience and brand propagation.</p>						<ul>
+							<li>Developed brand identity for clients, with their customer-base and intended audience in mind.							<li>Trained Junior Developers and co-op students on creating accessible designs, and to develop a brand and user experience that was in accordance with the client’s requirements.							<li>Created print-ready brochures, booklets, signs, menus, etc., using Adobe InDesign, including the use of typographic styles, colour profiles, layers, and master pages.							<li>Designed and converted a multitude of logos, icons, and illustrations in Adobe Illustrator.
 						</ul>
-						<p>Created print-ready brochures, booklets, signs, menus, etc., using Adobe InDesign, including the use of typographic styles, colour profiles, layers, and master pages.</p>
-						<p>Designed and converted a multitude of logos, icons, and illustrations in Adobe Illustrator.</p>
-						<p>Created animations and dynamic content using Adobe Flash, both through the graphical user interface and through ActionScript coding.</p>
 					</div>
 				</section>
 
@@ -421,12 +406,9 @@
 						<h4>Canadian Bank Note Company</h4>
 					</aside>
 					<div class="grid6 marginR1 details">
-						<p>As Director, Design &amp; Development, managed numerous projects and priorities for designers and developers company-wide.</p>
-						<ul>
-							<li>Managed a team of Junior Developers and co-op students working on the design, content conversion, development, and debugging of numerous websites.</li>
-							<li>Met with clients and account managers to develop a look and feel for each client’s brand, to advise on best practices, and to recommend solutions for maximum impact.</li>
-						</ul>
-						<p>As a Sales Service Manager, acted as a liaison between clients and internal departments.</p>
+						<p>As Director, Design &amp; Development, managed numerous projects and priorities for designers and developers company-wide.</p>						<ul>
+							<li>Managed a team of Junior Developers and co-op students working on the design, content conversion, development, and debugging.							<li>Met with clients to discuss needs, objectives, and conversion goals, and provided insight and innovative solutions to meet their criteria.							<li>Lead QA efforts for work completed by all designers and developers.							<li>Trained students and junior staff on design and development processes.						</ul>
+						<p>Created documentation for clients, on how to use their WordPress sites.</p>						<p>As a Sales Service Manager, acted as a liaison between clients and internal departments.</p>
 						<ul>
 							<li>Coordinated design, pricing, scheduling and approvals between internal departments.</li>
 							<li>Met with clients to establish system requirements, including business rules of ID systems.</li>
@@ -472,11 +454,10 @@
 							<h2>Volunteering</h2>
 						</aside>
 						<div class="grid6 marginR1 details">
+							<p>Mentored for Ladies Learning Code (<em>Intro to HTML &amp; CSS</em>).</p>
 							<p>Designed websites for Women of Hope, and for Accessibility for Government Online.</p>
 							<p>Volunteered with Games for All at the Ottawa Children's Festival.</p>
-							<p>Raised funds for and completed the CIBC Run for the Cure.</p>
-							<p>Canvassed for the Canadian National Institute for the Blind.</p>
-							<p>Canvassed for Ontario March of Dimes.</p>
+							<p>Donated blood through Canadian Blood Services.</p>
 						</div>
 					</section>
 					<section>
@@ -485,8 +466,7 @@
 						</aside>
 						<div class="grid6 marginR1 details">
 							<p>Designing, playing, and publishing European-style board games.</p>
-							<p><a href="http://pinterest.com/pin/228276274834112255/">Finding</a> <a href="http://pinterest.com/pin/228276274835105619/">awesome</a> <a href="http://pinterest.com/pin/228276274833880748/">memes</a> <a href="http://pinterest.com/lucasunplugged/humour/">online</a>.</p>
-							<p>Amateur photography and sharing on <a href="http://instagram.com/LucasUnplugged/">Instagram</a>.</p>
+							<p>Personal fitness and sports (mostly basketball and soccer).</p>
 						</div>
 					</section>
 				</div>
@@ -497,18 +477,20 @@
 	<footer id="contact" class="dark padTB1">
 		<div class="shadowDark">&nbsp;</div>
 		<div class="wrap">
-			<section class="grid3 marginL1">
+			<section class="grid2 marginL1">
 				<h2>Let's Be Social</h2>
 				<p role="contentinfo" class="social">
+<?php /*
 					<a href="http://dribbble.com/LucasUnplugged" class="inset"><i class="icon-dribbble">&nbsp;</i></a>
 					<a href="https://github.com/LucasUnplugged" class="inset"><i class="icon-github">&nbsp;</i></a>
+*/ ?>
 					<a href="http://ca.linkedin.com/in/castrolucas" class="inset"><i class="icon-linkedin">&nbsp;</i></a>
 					<a href="http://instagram.com/LucasUnplugged/" class="inset"><i class="icon-instagram">&nbsp;</i></a>
 					<a href="https://twitter.com/LucasUnplugged" class="inset"><i class="icon-twitter">&nbsp;</i></a>
 				</p>
 
 			</section>
-			<section class="grid3 padRL1">
+			<section class="grid4 padRL1">
 				<h2>I Don't Bite (Often)</h2>
 				<p role="contentinfo">Now that you know my life story, and have no doubt downloaded the compromisingly quirky photos of me for blackmail, <em>The Universe</em> is compelling you to get in touch with me. And it would be rude to say no to <em>The Universe</em>.</p>
 			</section>
@@ -530,14 +512,15 @@
 	</footer>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+<?php /*
 	<script src="js/fitvids.js"></script>
 	<script src="js/touchSwipe.min.js"></script>
-	<script src="js/leanModal.min.js"></script>	
-
+	<script src="js/leanModal.min.lc.js?x=<?php echo rand(0,100); ?>"></script>
+*/ ?>
+	<script src="js/imagelightbox.min.js"></script>
 	<script src="js/plugins.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/portfolio.js"></script>
+	<script src="js/main.js?x=<?php echo rand(0,100); ?>"></script>
 	
-	<?php include_once('inc/ga.php'); ?>
 </body>
 </html>

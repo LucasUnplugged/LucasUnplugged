@@ -1,6 +1,7 @@
 // jQUERY WRAPPER
 (function($){
 
+	// Temporarily display form messages
 	function formMessage (formId, text) {
 		$(formId + " .messageBox").html(text);
 
@@ -10,81 +11,54 @@
 		}, 5000);
 	}
 
+	// Move to previous slide
 	function prevSlide () {
 		// If we're on the first slide, loop around
-		if ( !$("#portfolioBox .project").first().hasClass("hidden") ) {
-			return false;
-/*				// Move the current slide to the top and animate it
-			$("#portfolioBox .project").first().css("z-index","100");
-			$("#portfolioBox .project").first().toggleClass("prevSlide");
-
-			// Show last slide
-			$("#portfolioBox .project").last().toggleClass("nextSlide hidden");
-
-			setTimeout(function(){
-				// Hide the first slide
-				$("#portfolioBox .project").first().toggleClass("nextSlide hidden");
-				$("#portfolioBox .project").first().css("z-index","0");
-			}, 300);
-*/
+		if ( $("#portfolioBox .project").first().hasClass("active") ) {
+			// Move all the slides over
+			$("#portfolioBox .right").toggleClass("left right");
+			
+			// Hide the active slide
+			$("#portfolioBox .active").toggleClass("left active");
+			
+			// Show the last slide
+			$("#portfolioBox .project").last().toggleClass("left active");
+			
 		} else {
-			// Reveal the next slide
-			$("#portfolioBox .frame a.hidden").not(".nextSlide").last().toggleClass("hidden");
-
-			// Moves the current slide
-			$("#portfolioBox .prevSlide").last().toggleClass("prevSlide");
-			$("#portfolioBox .project").not(".nextSlide").last().toggleClass("nextSlide");
-
-			// Wait for CSS animations to complete
-			setTimeout(function(){
-				// Hide this batch
-				$("#portfolioBox .nextSlide").first().toggleClass("hidden");
-				//$("#portfolioBox .nextSlide").first().css("z-index","0");
-			}, 200);
+		
+			// Hide the active slide
+			$("#portfolioBox .active").toggleClass("right active");
+			
+			// Show the previous slide
+			$("#portfolioBox .left").last().toggleClass("left active");
 		}
 	}
 
+	// Move to next slide
 	function nextSlide () {
 		// If we're on the last slide, loop around
-		if ( !$("#portfolioBox .project").last().hasClass("hidden") ) {
-			return false;
-/*				// Move the current slide to the top and animate it
-			$("#portfolioBox .project").first().css("z-index","0");
-			$("#portfolioBox .project").last().toggleClass("nextSlide");
-
-			// Show first slide
-			$("#portfolioBox .project").first().toggleClass("prevSlide hidden");
-
-			setTimeout(function(){
-				// Hide the last slide
-				$("#portfolioBox .project").last().toggleClass("prevSlide hidden");
-				$("#portfolioBox .project").last().css("z-index","0");
-			}, 300);
-*/
+		if ( $("#portfolioBox .project").last().hasClass("active") ) {
+			// Move all the slides over
+			$("#portfolioBox .left").toggleClass("left right");
+			
+			// Hide the active slide
+			$("#portfolioBox .active").toggleClass("right active");
+			
+			// Show the first slide
+			$("#portfolioBox .project").first().toggleClass("right active");
+			
 		} else {
-			// Move current slide to the top
-			$("#portfolioBox .project").not(".prevSlide").first().css("z-index","100");
 
-			// Reveal the next slide
-			$("#portfolioBox .frame a.hidden").not(".prevSlide").first().toggleClass("hidden");
-
-			// Moves the current slide
-			$("#portfolioBox .nextSlide").first().toggleClass("nextSlide");
-			$("#portfolioBox .project").not(".prevSlide").first().toggleClass("prevSlide");
-
-			// Wait for CSS animations to complete
-			setTimeout(function(){
-				// Hide this batch
-				$("#portfolioBox .prevSlide").last().toggleClass("hidden");
-				$("#portfolioBox .prevSlide").last().css("z-index","0");
-			}, 200);
+			// Hide the active slide
+			$("#portfolioBox .active").toggleClass("left active");
+			
+			// Show the next slide
+			$("#portfolioBox .right").first().toggleClass("right active");
 		}
 	}
 
-
-
-
 	$(document).ready(function(){
+/*
 		// Remove content from portfolio arrows
 		$("#portfolio .inset").html("");
 
@@ -96,18 +70,19 @@
 		$("#portfolioBox .icon-right-open").click(function(){
 			nextSlide();
 		});
+		
+		// Look for key presses for navigating through the portfolio
 		$("body").keydown(function (e) {
 			var code=(e.keyCode ? e.keyCode : e.which);
 			console.log(code);
-			if(code==37){
+			if(code==37){ // Left arrow pressed
 				prevSlide();
-			} else if (code==39){
+			} else if (code==39){ // Right arrow pressed
 				nextSlide();
 			}
 		});
-
-
-		// Hides the logo when on the "About Me" section, and show it otherwise
+*/
+		// Hide the logo when on the "About Me" section, and show it otherwise
 		var scrollTop = $(window).scrollTop();
 		
 		var target = $("#portfolio").offset().top - 200; // Give a bit of leeway
@@ -120,8 +95,8 @@
 		}, 750);
 
 		// Expand portfolio projects
-		$("a[rel*=leanModal]").leanModal( { top : -50, overlay : 0.7 } );
-
+//		$("a.leanModal").leanModal( { top : -50, overlay : 0.85 } );
+		
 		// Scrolls smoothly from the top menu
 		$('a[href^="#"]').click(function(){
 			// Check if the click was on a portfolio project
@@ -218,7 +193,7 @@
 		} else if (!emailReg.test(data[2]["value"])) {
 			formMessage(formId, "<span class='fail'>Please enter a valid email address.</span>");
 		}else { // Everything looks fine
-			$.post("http://ninelime.com/lucas/main/mail.php", data, function(data,status) {
+			$.post("http://lucasunplugged.com/mail.php", data, function(data,status) {
 				console.log(status);
 				if(status == "success"){
 					formMessage(formId, "<span class='success'>Success!</span>");

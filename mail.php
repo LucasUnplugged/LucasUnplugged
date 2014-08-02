@@ -29,6 +29,8 @@ if($_POST['youSubmit']) {
 		
 		$contact = true;
 		
+		echo 'Sent: '. $message;
+		
 	} else { $contact = false;}
 
 	return $contact;
@@ -56,11 +58,12 @@ if($_POST['youSubmit']) {
 		$message=stripslashes($message);
 		mail("lucas@uniforge.com","LucasUnplugged.com Contact (Footer)",$message,"From: ".$email);
 		
+		echo 'Sent: '. $message;
+		
 		$contact = true;
 		
 	} else { $contact = false;}
 
 	return $contact;
 }
-
 ?>
