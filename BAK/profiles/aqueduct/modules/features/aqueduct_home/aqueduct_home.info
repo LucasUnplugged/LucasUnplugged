@@ -1,0 +1,21 @@
+name = Aqueduct Home
+description = Defines and configures the Aqueduct home page.
+core = 7.x
+package = Features
+version = 7.x-1.0-alpha1
+project = aqueduct_home
+dependencies[] = ctools
+dependencies[] = strongarm
+dependencies[] = views
+features[ctools][] = strongarm:strongarm:1
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[variable][] = site_frontpage
+features[views_view][] = aqueduct_home_page
+
+; Information added by drupal.org packaging script on 2013-02-24
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "aqueduct"
+datestamp = "1361709231"
+

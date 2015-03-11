@@ -25,7 +25,7 @@ if($_POST['youSubmit']) {
 		$message.="Email: ".$email."\n";
 		if ($comments != 'Message') $message.="Message: ".$comments."\n";
 		$message=stripslashes($message);
-		mail("lucas@uniforge.com","LucasUnplugged.com Contact (You Banner)",$message,"From: ".$email);
+		mail("lucas.castro@gmail.com","LucasUnplugged.com Contact (You Banner)",$message,"From: ".$email);
 		
 		$contact = true;
 		
@@ -56,7 +56,7 @@ if($_POST['youSubmit']) {
 		$message.="Email: ".$email."\n";
 		if ($comments != 'Message') $message.="Message: ".$comments."\n";
 		$message=stripslashes($message);
-		mail("lucas@uniforge.com","LucasUnplugged.com Contact (Footer)",$message,"From: ".$email);
+		mail("lucas.castro@gmail.com","LucasUnplugged.com Contact (Footer)",$message,"From: ".$email);
 		
 		echo 'Sent: '. $message;
 		

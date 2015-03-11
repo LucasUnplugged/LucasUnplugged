@@ -1,0 +1,4 @@
+[31-Mar-2013 13:55:14 CST6CDT] PHP Parse error:  syntax error, unexpected $end in /home/ninelime/public_html/lucas/includes/bootstrap.inc on line 1603
+[31-Mar-2013 13:55:15 CST6CDT] PHP Parse error:  syntax error, unexpected $end in /home/ninelime/public_html/lucas/includes/bootstrap.inc on line 1603
+[31-Mar-2013 14:57:30 America/Montreal] PHP Warning:  Unterminated comment starting line 748 in /home/ninelime/public_html/lucas/includes/common.inc on line 748
+[31-Mar-2013 14:57:30 America/Montreal] PHP Fatal error:  Call to undefined function _drupal_bootstrap_full() in /home/ninelime/public_html/lucas/includes/bootstrap.inc on line 2198

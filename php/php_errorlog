@@ -1,0 +1,8 @@
+[21-Dec-2014 18:55:55 CST6CDT] PHP Fatal error:  Call to protected managedArray::__construct() from invalid context in /home/ninelime/lucas/php/sandbox.php on line 24
+[21-Dec-2014 18:56:14 CST6CDT] PHP Fatal error:  Call to a member function output() on a non-object in /home/ninelime/lucas/php/sandbox.php on line 26
+[21-Dec-2014 19:01:02 CST6CDT] PHP Fatal error:  Call to a member function output() on a non-object in /home/ninelime/lucas/php/sandbox.php on line 26
+[21-Dec-2014 19:01:03 CST6CDT] PHP Fatal error:  Call to a member function output() on a non-object in /home/ninelime/lucas/php/sandbox.php on line 26
+[21-Dec-2014 19:01:06 CST6CDT] PHP Fatal error:  Call to a member function output() on a non-object in /home/ninelime/lucas/php/sandbox.php on line 26
+[21-Dec-2014 19:01:07 CST6CDT] PHP Fatal error:  Call to a member function output() on a non-object in /home/ninelime/lucas/php/sandbox.php on line 26
+[21-Dec-2014 19:01:08 CST6CDT] PHP Fatal error:  Call to a member function output() on a non-object in /home/ninelime/lucas/php/sandbox.php on line 26
+[21-Dec-2014 19:01:58 CST6CDT] PHP Fatal error:  Call to a member function output() on a non-object in /home/ninelime/lucas/php/sandbox.php on line 26

@@ -1,0 +1,12 @@
+name = Golden Gridlet
+description = Show the baseline grid used for the Golden Grid theme.
+core = 7.x
+package = Development
+configure = admin/config/development/gridlet
+
+
+; Information added by drush on 2013-02-24
+version = ""
+project = "golden_gridlet"
+datestamp = "1361709233"
+

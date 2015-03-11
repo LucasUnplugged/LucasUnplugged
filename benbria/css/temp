@@ -1,0 +1,5 @@
+Create % based padding styles, in the same loop as the Grid (up to $i < 5).
+	if $i = 12, save that value in a variable. Use it for mobile, "full width" size
+
+Use these styles instead of grid spacers
+

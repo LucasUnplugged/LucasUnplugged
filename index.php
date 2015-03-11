@@ -86,7 +86,7 @@
 								<p>Everything I know as a designer, developer, and entrepreneur I learned by getting my hands dirty. I believe we embrace continual learning only when we are passionate about our work, and I am always eager to evolve my expertise in order to adapt to this rapidly-changing field.</p>
 							</div>
 							<div class="padB0-7">
-								<h2>Favourite New Techs</h2>
+								<h2>Knowledge Roadmap</h2>
 								<ul class="flush">
 								<li>Node.js</li>
 								<li>Meteor</li>

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Aqueduct Blog feature.
+ */
+
+include_once('aqueduct_blog.features.inc');

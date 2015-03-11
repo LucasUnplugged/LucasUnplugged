@@ -1,0 +1,188 @@
+<?php
+/**
+ * @file
+ * Installation tasks for the Aqueduct install profile.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function aqueduct_install() {
+  // Set theme defaults.
+  $default_theme = 'achromatic';
+  theme_enable(array($default_theme));
+  variable_set('theme_default', $default_theme);
+
+  $admin_theme = 'seven';
+  variable_set('admin_theme', $admin_theme);
+  variable_set('node_admin_theme', '1');
+
+  // Add contact form menu link.
+  menu_cache_clear_all();
+  $item = array(
+    'link_path' => drupal_get_normal_path('contact'),
+    'link_title' => 'Contact',
+    'menu_name' => 'main-menu',
+    'weight' => 50,
+  );
+  $i = menu_link_save($item);
+  debug($i ?: 'FALSE');
+  menu_cache_clear_all();
+
+  // Add text formats.
+  $filtered_html_format = array(
+    'format' => 'filtered_html',
+    'name' => 'Filtered HTML',
+    'weight' => 0,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // HTML filter.
+      'filter_html' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 2,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
+
+  $full_html_format = array(
+    'format' => 'full_html',
+    'name' => 'Full HTML',
+    'weight' => 1,
+    'filters' => array(
+      // URL filter.
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+      ),
+      // Line break filter.
+      'filter_autop' => array(
+        'weight' => 1,
+        'status' => 1,
+      ),
+      // HTML corrector filter.
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+      ),
+    ),
+  );
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
+
+  // Enable default blocks by adding them directly to the database.
+  $values = array(
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'help',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'aqueduct_portfolio-block',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => -10,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'pages' => "<front>",
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'aqueduct_blog-recent_posts',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'sidebar_first',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => "blog\nblog/*",
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array('module', 'delta', 'theme', 'status', 'weight', 'region', 'visibility', 'pages', 'cache'));
+  foreach ($values as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+
+  // Disallow account creation and per-user contact forms.
+  variable_set('user_register', 0);
+  variable_set('contact_default_status', 0);
+
+  // Allow visitor account creation, but with administrative approval.
+  variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
+
+  // Enable default permissions for system roles. 
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access site-wide contact form', 'post comments', 'access comments'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access site-wide contact form', 'post comments', 'access comments'));
+
+  // Create a default role for site administrators, with all available permissions
+  // We're going to be granting permissions to other roles via Features.
+  $admin_role = new stdClass();
+  $admin_role->name = 'administrator';
+  $admin_role->weight = 2;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
+
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+
+  // Clear the menu cache on behalf of all features that need it.
+  menu_rebuild();
+}
+
+function aqueduct_install_tasks_alter(&$tasks, $install_state) {
+  $tasks['install_finished']['function'] = 'aqueduct_install_finished';
+}
+
+function aqueduct_install_finished(&$install_state) {
+  $output = install_finished($install_state);
+
+  // Rebuild the features static caches.
+  features_include(TRUE);
+  features_rebuild();
+
+  drupal_flush_all_caches();
+
+  return $output;
+}

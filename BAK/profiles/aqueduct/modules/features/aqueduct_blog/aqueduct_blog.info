@@ -1,0 +1,33 @@
+name = Aqueduct Blog
+description = Provides a site-wide blog for Aqueduct
+core = 7.x
+package = Features
+php = 5.2.4
+version = 7.x-1.0-alpha1
+project = aqueduct_blog
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = strongarm
+dependencies[] = taxonomy
+dependencies[] = views
+features[ctools][] = strongarm:strongarm:1
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[field][] = node-blog_post-body
+features[field][] = node-blog_post-field_tags
+features[node][] = blog_post
+features[taxonomy][] = tags
+features[variable][] = menu_options_blog_post
+features[variable][] = menu_parent_blog_post
+features[variable][] = node_options_blog_post
+features[variable][] = node_preview_blog_post
+features[variable][] = node_submitted_blog_post
+features[variable][] = pathauto_node_blog_post_pattern
+features[views_view][] = aqueduct_blog
+
+; Information added by drupal.org packaging script on 2013-02-24
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "aqueduct"
+datestamp = "1361709231"
+
