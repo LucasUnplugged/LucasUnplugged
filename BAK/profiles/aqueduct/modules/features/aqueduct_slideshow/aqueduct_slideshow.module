@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Aqueduct Slideshow feature.
- */
-
-include_once('aqueduct_slideshow.features.inc');

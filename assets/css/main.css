@@ -1,0 +1,645 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+* {
+  vertical-align: baseline;
+  font-family: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, pre, blockquote, form, ul, ol, dl {
+  margin: 0 0 16px;
+}
+
+li, dd, blockquote {
+  margin-left: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+article, aside, dialog, figure, footer, header, hgroup, nav, section {
+  display: block;
+}
+
+nav li, nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+q:before, q:after {
+  content: '';
+}
+
+@font-face {
+  font-family: "Lucas";
+  src: url("../fonts/lucas.eot");
+  src: url("../fonts/lucas.eot?#iefix") format("embedded-opentype"), url("../fonts/lucas.woff") format("woff"), url("../fonts/lucas.ttf") format("truetype"), url("../fonts/lucas.svg#lucas") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[data-icon]:before {
+  font-family: "Lucas" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "Lucas" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon--"]:before {
+  display: block;
+  white-space: pre;
+}
+
+[class^="icon--h"]:before {
+  letter-spacing: 6px;
+}
+
+[class^="icon--e"]:before {
+  letter-spacing: 1px;
+}
+
+[class^="icon--g"]:before {
+  letter-spacing: 3px;
+}
+
+.icon--h-8:before {
+  content: "hhhh\A hhhh";
+}
+
+.icon--h-9:before {
+  content: "hhhhh\A hhhh";
+}
+
+.icon--h-10:before {
+  content: "hhhhh\A hhhhh";
+}
+
+.icon--e-9:before {
+  content: "eeeee\A eeee";
+}
+
+.icon--e-10:before {
+  content: "eeeee\A eeeee";
+}
+
+.icon--e-11:before {
+  content: "eeeeee\A eeeee";
+}
+
+.icon--g-2:before {
+  content: "g\A g";
+}
+
+.icon--g-3:before {
+  content: "gg\A g";
+}
+
+.icon--g-4:before {
+  content: "gg\A gg";
+}
+
+.icon-process:before {
+  content: "a";
+}
+
+.icon-convention:before {
+  content: "b";
+}
+
+.icon-board:before {
+  content: "c";
+}
+
+.icon-group:before {
+  content: "d";
+}
+
+.icon-scope:before {
+  content: "e";
+}
+
+.icon-lead:before {
+  content: "f";
+}
+
+.icon-product:before {
+  content: "g";
+}
+
+.icon-star:before {
+  content: "h";
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  overflow-y: scroll;
+  /* killing 300ms touch delay in IE */
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  font-size: 85%;
+}
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 92.5%;
+  }
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.1875rem;
+  line-height: 1.75;
+  font-family: "Merriweather", "Book Antiqua", Palatino, serif;
+  color: #444444;
+}
+body.is-loading {
+  background: white url("../img/loading.gif") center center no-repeat;
+}
+body.is-loading > header, body.is-loading > div, body.is-loading > section, body.is-loading > article {
+  display: none;
+}
+
+code, pre {
+  font-family: "Courier New", Courier, monospace;
+}
+
+img, object, video {
+  max-width: 100%;
+  border: none;
+}
+.ie7 img, .ie7 object, .ie7 video {
+  -ms-interpolation-mode: bicubic;
+}
+
+:invalid {
+  border: none;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+::-moz-selection {
+  background: #bb3a6a !important;
+  color: white !important;
+  text-shadow: none;
+}
+
+::selection {
+  background: #bb3a6a !important;
+  color: white !important;
+  text-shadow: none;
+}
+
+a {
+  color: #bb3a6a;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #bb3a6a;
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 35px 0;
+  font-weight: 700;
+  font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1.18967;
+}
+h1.sub-title, h2.sub-title, h3.sub-title, h4.sub-title, h5.sub-title, h6.sub-title {
+  margin-top: 0;
+  line-height: 1.53125;
+  font-size: 1.48438rem;
+  font-weight: 200;
+  text-transform: none;
+  color: #767676;
+}
+
+.dark a, header[role="banner"] a {
+  color: #64e4a4;
+}
+.dark a:hover, header[role="banner"] a:hover, .dark a:focus, header[role="banner"] a:focus {
+  color: white;
+}
+.dark h1, header[role="banner"] h1, .dark h2, header[role="banner"] h2, .dark h3, header[role="banner"] h3, .dark h4, header[role="banner"] h4, .dark h5, header[role="banner"] h5 {
+  color: white;
+}
+.dark, header[role="banner"], .dark h5, header[role="banner"] h5, .dark p, header[role="banner"] p, .dark li, header[role="banner"] li, .dark small, header[role="banner"] small, .dark blockquote, header[role="banner"] blockquote, .dark code, header[role="banner"] code {
+  color: #f3f3f3;
+}
+
+h1, h2 {
+  font-size: 1.78125rem;
+}
+h1.feature, .feature h1, h2.feature, .feature h2 {
+  font-size: 2.375rem;
+}
+main header h1, main header h2 {
+  margin-bottom: 52.5px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.48438rem;
+}
+
+h3 {
+  font-size: 1.27232rem;
+}
+
+h4, h5 {
+  font-size: 1.11328rem;
+}
+
+h5 {
+  font-size: 0.98958rem;
+}
+
+h6 {
+  font-size: 0.89063rem;
+  margin: 12.25px 0;
+}
+
+p {
+  padding: 0;
+  margin: 0 0 22.75px;
+}
+p.feature, .feature p {
+  font-size: 1.48438rem;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul, ol {
+  margin: 0 0 0 17.5px;
+  padding: 0 0 17.5px 17.5px;
+  list-style-type: square;
+}
+ul.lower-alpha, ol.lower-alpha {
+  list-style-type: lower-alpha;
+}
+ul.lower-roman, ol.lower-roman {
+  list-style-type: lower-roman;
+}
+ul.upper-alpha, ol.upper-alpha {
+  list-style-type: upper-alpha;
+}
+ul.upper-roman, ol.upper-roman {
+  list-style-type: upper-roman;
+}
+ul li, ol li {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+ul li ul, ul li ol, ol li ul, ol li ol {
+  padding: 8.75px 0 0 17.5px;
+}
+ul li p, ol li p {
+  padding: 0 0 8.75px;
+}
+
+.hairline {
+  font-weight: 100 !important;
+}
+
+.thin {
+  font-weight: 300 !important;
+}
+
+blockquote {
+  margin: 35px 0;
+  padding: 0 35px;
+  font-family: "Libre Baskerville", "Merriweather", serif;
+  font-size: 1.48438rem;
+  line-height: 1.96875;
+  font-weight: 400;
+  font-style: italic;
+  -webkit-font-smoothing: antialiased;
+  border: none;
+  text-align: center;
+}
+
+figure {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: box;
+  -webkit-box-orient: inline-axis;
+  -moz-box-orient: inline-axis;
+  box-orient: inline-axis;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  box-align: stretch;
+  -ms-flex-align: stretch;
+  padding: 0;
+  margin: 0 0 26.25px;
+  border-radius: 0;
+}
+figure figcaption {
+  padding: 8.75px 22.75px 17.5px;
+  font-size: 80%;
+  font-style: italic;
+}
+
+pre {
+  padding: 22.75px;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+hr {
+  margin: 43.75px 0 35px;
+}
+
+.wrap, article > section, header > section, main > section, article > header, #bg > section, header[role="banner"] > section {
+  max-width: 1088px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+.wrap::after, article > section::after, header > section::after, main > section::after, article > header::after, #bg > section::after, header[role="banner"] > section::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+@media screen and (min-width: 768px) {
+  .wrap, article > section, header > section, main > section, article > header, #bg > section, header[role="banner"] > section {
+    padding: 0;
+  }
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 70px;
+  text-align: center;
+  background: #444444 url("../img/bg01_dark.jpg") no-repeat center center;
+  background-size: cover;
+}
+#bg > section {
+  height: 97vh;
+  margin-top: 3vh;
+}
+@media screen and (min-width: 768px) {
+  #bg > section {
+    max-height: 95vh;
+    margin-top: 5vh;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #bg > section:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: -160px;
+    bottom: 0;
+    width: 392px;
+    height: 571px;
+    max-height: 75vh;
+    background: url("../img/lc01.png") top center no-repeat;
+  }
+}
+
+header[role="banner"] {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+@media screen and (min-width: 1025px) {
+  header[role="banner"] {
+    position: fixed;
+  }
+  header[role="banner"].overlay {
+    background: rgba(48, 48, 48, 0.88);
+  }
+  header[role="banner"].overlay nav {
+    margin: 0;
+  }
+  header[role="banner"].overlay nav, header[role="banner"].overlay nav .logo {
+    font-size: 1.48438rem;
+  }
+}
+header[role="banner"] nav {
+  position: relative;
+  margin: 17.5px 0;
+  font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+}
+@media screen and (min-width: 768px) {
+  header[role="banner"] nav {
+    margin: 35px 0;
+  }
+}
+header[role="banner"] nav, header[role="banner"] nav .logo {
+  font-size: 1.78125rem;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+header[role="banner"] nav a {
+  display: inline-block;
+  padding: 5.83333px 8.75px;
+}
+@media screen and (min-width: 768px) {
+  header[role="banner"] nav a {
+    padding: 11.66667px 17.5px;
+  }
+}
+header[role="banner"] nav ul {
+  display: block;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+header[role="banner"] nav li {
+  display: inline-block;
+  list-style: none;
+}
+header[role="banner"] nav .logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  line-height: 1.75;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 1024px) {
+  header[role="banner"] nav .logo {
+    position: relative;
+    text-align: center;
+  }
+}
+header[role="banner"] nav .logo a {
+  color: white;
+}
+@media screen and (min-width: 1201px) {
+  header[role="banner"] nav .logo a {
+    padding-left: 0;
+  }
+}
+header[role="banner"] nav .logo a:hover, header[role="banner"] nav .logo a:focus {
+  color: #33b272;
+}
+
+main > article,
+main > section {
+  padding: 70px 0;
+}
+main > article.dark,
+main > section.dark {
+  background-color: #444444;
+}
+main > article.medium,
+main > section.medium {
+  background-color: #f3f3f3;
+}
+main > article.light,
+main > section.light {
+  background-color: white;
+}
+
+#blurb {
+  padding: 0;
+  margin-top: 190px;
+  margin-bottom: 70px;
+}
+@media screen and (min-width: 480px) {
+  #blurb {
+    float: left;
+    display: block;
+    margin-right: 16.03631%;
+    width: 100%;
+    margin-left: 0%;
+  }
+  #blurb:last-child {
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  #blurb {
+    float: left;
+    display: block;
+    margin-right: 4.82916%;
+    width: 65.05695%;
+    margin-left: 17.47153%;
+    margin-top: 230px;
+  }
+  #blurb:last-child {
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #blurb {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%;
+  }
+  #blurb:last-child {
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 1201px) {
+  #blurb {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-left: 25.58941%;
+  }
+  #blurb:last-child {
+    margin-right: 0;
+  }
+}
+#blurb h1 {
+  font-size: 2.67188rem;
+  text-align: center;
+}
+#blurb .body {
+  text-align: left;
+}
+
+#results {
+  text-align: center;
+}
+#results > section div {
+  display: inline-block;
+  width: 30%;
+  padding: 0 1.6667%;
+  vertical-align: text-top;
+}
+#results > section div:nth-child(1n) {
+  color: #bb3a6a;
+}
+#results > section div:nth-child(2n) {
+  color: #226c47;
+}
+#results > section div:nth-child(2n):before {
+  color: #33b272;
+}
+#results > section div:nth-child(3n) {
+  color: #444444;
+}
+#results [class^="icon--"]:before {
+  margin-bottom: 17.5px;
+  line-height: 1.235;
+  font-size: 200%;
+}

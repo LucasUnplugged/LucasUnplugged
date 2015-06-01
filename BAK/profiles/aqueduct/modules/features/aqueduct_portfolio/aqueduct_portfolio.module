@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Aqueduct Portfolio feature.
- */
-
-include_once('aqueduct_portfolio.features.inc');
