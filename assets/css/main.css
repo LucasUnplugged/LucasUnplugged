@@ -82,7 +82,7 @@ q:before, q:after {
 }
 
 [class^="icon--h"]:before {
-  letter-spacing: 6px;
+  letter-spacing: 3px;
 }
 
 [class^="icon--e"]:before {
@@ -103,6 +103,10 @@ q:before, q:after {
 
 .icon--h-10:before {
   content: "hhhhh\A hhhhh";
+}
+
+.icon--h-11:before {
+  content: "hhhhhh\A hhhhh";
 }
 
 .icon--e-9:before {
@@ -620,26 +624,151 @@ main > section.light {
 #results {
   text-align: center;
 }
-#results > section div {
-  display: inline-block;
-  width: 30%;
-  padding: 0 1.6667%;
-  vertical-align: text-top;
+#results > section {
+  text-align: center;
+  max-width: 900px;
+  padding: 0 0 3rem;
+  margin: 0 15px 3rem;
+  border-bottom: 3px solid white;
 }
-#results > section div:nth-child(1n) {
+#results > section:last-child {
+  border: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  #results > section {
+    margin: 0 auto 3rem;
+  }
+}
+#results > section div, #results > section h2 {
+  display: inline-block;
+  width: 100%;
+  max-width: 360px;
+  padding: 0 2%;
+  margin: 0 auto 3rem;
+  vertical-align: text-top;
+  line-height: 1.575;
+  font-size: 1.15039rem;
+  font-weight: 300;
+}
+#results > section div:last-child, #results > section h2:last-child {
+  margin-bottom: 0.5rem;
+}
+#results > section div:nth-child(3n-2), #results > section h2:nth-child(3n-2) {
   color: #bb3a6a;
 }
-#results > section div:nth-child(2n) {
+#results > section div:nth-child(3n-1), #results > section h2:nth-child(3n-1) {
   color: #226c47;
 }
-#results > section div:nth-child(2n):before {
+#results > section div:nth-child(3n-1):before, #results > section h2:nth-child(3n-1):before {
   color: #33b272;
 }
-#results > section div:nth-child(3n) {
+#results > section div:nth-child(3n), #results > section h2:nth-child(3n) {
   color: #444444;
+}
+@media screen and (min-width: 480px) {
+  #results > section div, #results > section h2 {
+    width: 48%;
+  }
+}
+@media screen and (min-width: 768px) {
+  #results > section div, #results > section h2 {
+    width: 32%;
+    margin: 0;
+  }
+}
+#results > section.wide {
+  max-width: 1200px;
+}
+#results > section.wide div, #results > section.wide h2 {
+  position: relative;
+  padding: 0 0 0 140px;
+  text-align: left;
+  line-height: 1.1375;
+  font-size: 1.92375rem;
+}
+#results > section.wide div:nth-child(3n), #results > section.wide h2:nth-child(3n) {
+  color: #bb3a6a;
+}
+#results > section.wide div:nth-child(3n-2), #results > section.wide h2:nth-child(3n-2) {
+  color: #226c47;
+}
+#results > section.wide div:nth-child(3n-2):before, #results > section.wide div:nth-child(3n-2) span, #results > section.wide h2:nth-child(3n-2):before, #results > section.wide h2:nth-child(3n-2) span {
+  color: #33b272;
+}
+#results > section.wide div:nth-child(3n-1), #results > section.wide h2:nth-child(3n-1) {
+  color: #444444;
+}
+#results > section.wide div span, #results > section.wide h2 span {
+  display: inline-block;
+  position: absolute;
+  right: 100%;
+  margin-right: -120px;
+  line-height: 6.8rem;
+  font-size: 7.34766rem;
+  font-weight: 700;
+}
+@media screen and (min-width: 480px) {
+  #results > section.wide div, #results > section.wide h2 {
+    width: 100%;
+    max-width: 768px;
+    line-height: 1.1375;
+    font-size: 2.1375rem;
+    padding-left: 180px;
+  }
+  #results > section.wide div span, #results > section.wide h2 span {
+    margin-right: -160px;
+    line-height: 7rem;
+    font-size: 8.01563rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  #results > section.wide div, #results > section.wide h2 {
+    width: 48%;
+    max-width: 500px;
+    margin: 3rem auto 0;
+    line-height: 1.1375;
+    font-size: 2.27109rem;
+  }
+  #results > section.wide div:nth-child(1), #results > section.wide div:nth-child(2), #results > section.wide h2:nth-child(1), #results > section.wide h2:nth-child(2) {
+    margin-top: 0;
+  }
+  #results > section.wide div span, #results > section.wide h2 span {
+    line-height: 7.5rem;
+    font-size: 8.28281rem;
+  }
+}
+#results > section.narrow {
+  max-width: 900px;
+}
+@media screen and (min-width: 480px) {
+  #results > section.narrow div, #results > section.narrow h2 {
+    width: 48%;
+  }
+}
+@media screen and (min-width: 768px) {
+  #results > section.narrow div, #results > section.narrow h2 {
+    width: 24%;
+  }
+}
+#results [class^="icon-"]:before {
+  display: block;
+  margin: 0 auto 1.5rem;
+  font-size: 5.5rem;
+}
+@media screen and (min-width: 768px) {
+  #results [class^="icon-"]:before {
+    font-size: 7rem;
+  }
 }
 #results [class^="icon--"]:before {
   margin-bottom: 17.5px;
   line-height: 1.235;
-  font-size: 200%;
+  font-size: 175%;
+}
+@media screen and (min-width: 768px) {
+  #results [class^="icon--"]:before {
+    font-size: 200%;
+  }
 }

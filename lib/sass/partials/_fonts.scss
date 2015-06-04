@@ -41,7 +41,7 @@
 	white-space: pre;
 }
 [class^="icon--h"]:before {
-	letter-spacing: 6px;
+	letter-spacing: 3px;
 }
 [class^="icon--e"]:before {
 	letter-spacing: 1px;
@@ -58,6 +58,9 @@
 }
 .icon--h-10:before {
 	content: "hhhhh\A hhhhh";
+}
+.icon--h-11:before {
+	content: "hhhhhh\A hhhhh";
 }
 
 .icon--e-9:before {
