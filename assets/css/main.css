@@ -955,14 +955,6 @@ header[role="banner"] nav .logo a:hover, header[role="banner"] nav .logo a:focus
   color: #33b272;
 }
 
-main {
-  padding-top: 70px;
-}
-@media screen and (min-width: 520px) {
-  main {
-    padding-top: 0;
-  }
-}
 main > article > div,
 main > article,
 main > section,
