@@ -22,7 +22,7 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
 	padding: 0;
-	margin: $app-box-pad 0;
+	margin: $app-pad 0;
 	font-weight: 700;
 	font-family: $app-font-title;
 	line-height: $app-line-height / 1.471;
@@ -61,8 +61,8 @@ h1, h2 {
 	}
 
 	main header & {
-		margin-bottom: $app-box-pad*1.5;
-		font-weight: 300;
+		margin-bottom: $app-pad*1.125;
+		font-weight: 700;
 		text-transform: uppercase;
 	}
 }
@@ -83,12 +83,12 @@ h5 {
 }
 h6 {
 	font-size: ($app-h1/2);
-	margin: $app-box-pad*0.35 0;
+	margin: $app-pad*0.35 0;
 }
 
 p {
 	padding: 0;
-	margin: 0 0 $app-box-pad*0.65;
+	margin: 0 0 $app-pad*0.65;
 	
 	&.feature, .feature & {
 		font-size: $app-feature-p;
@@ -100,35 +100,66 @@ p {
 }
 
 ul, ol {
-	margin: 0 0 0 $app-box-pad*0.5;
-	padding: 0 0 $app-box-pad*0.5 $app-box-pad*0.5;
-	list-style-type: square;
-	
-	&.lower-alpha {
-		list-style-type: lower-alpha;
-	}
-	&.lower-roman {
-		list-style-type: lower-roman;
-	}
-	&.upper-alpha {
-		list-style-type: upper-alpha;
-	}
-	&.upper-roman {
-		list-style-type: upper-roman;
-	}
-	
-	li {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		
-		ul, ol {
-			padding: $app-box-pad*0.25 0 0 $app-box-pad*0.5;
-		}
+	padding: 0 0 $app-pad*0.5 10px;
+	margin: 0;
+	list-style-type: none;
+	counter-reset: item;
+}	
+li {
+	position: relative;
+	padding: 0 0 0 ($app-box-pad - 10);
+	margin: 0.5em 0 0;
 
-		p {
-			padding: 0 0 $app-box-pad*0.25;
-		}
+	&::before {
+		counter-increment: item;
+		position: absolute;
+		left: 0;
+		top: 0;
+		line-height: 1;
+		color: $app-color-main;
+		font-size: 180%;
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	ul &::before {
+		content: "\2022";
+	}
+
+	ol &::before {
+		content: counter(item) "";
+		font-size: 1.25rem;
+		line-height: 1.5;
+	}
+
+	ol.lower-alpha &::before {
+		content: counter(item, lower-alpha);
+	}
+	ol.lower-roman &::before {
+		content: counter(item, lower-roman);
+	}
+	ol.upper-alpha &::before {
+		content: counter(item, upper-alpha);
+	}
+	ol.upper-roman &::before {
+		content: counter(item, upper-roman);
+	}
+
+	
+	ul, ol {
+		padding: $app-pad*0.25 0 0 $app-pad*0.5;
+	}
+
+	p {
+		padding: 0 0 $app-pad*0.25;
+	}
+}
+
+ol {
+	li {
+		
 	}
 }
 
@@ -140,8 +171,9 @@ ul, ol {
 }
 
 blockquote {
-	margin: $app-box-pad 0;
-	padding: 0 $app-box-pad;
+	margin: $app-pad 0;
+	padding: 0 $app-pad;
+	color: $app-color-text-medium;
 	font-family: $app-font-script;
 	font-size: $app-feature-p;
 	line-height: $app-line-height * 1.125;
@@ -150,23 +182,27 @@ blockquote {
 	-webkit-font-smoothing: antialiased;
 	border: none;
 	text-align: center;
+
+	address {
+		font-weight: 300;
+	}
 }
 
 figure {
 	@include box;
 	padding: 0;
-	margin: 0 0 $app-box-pad*0.75;
+	margin: 0 0 $app-pad*0.75;
 	border-radius: 0;
 	
 	figcaption {
-		padding: $app-box-pad*0.25 $app-box-pad*0.65 $app-box-pad*0.5;
+		padding: $app-pad*0.25 $app-pad*0.65 $app-pad*0.5;
 		font-size: 80%;
 		font-style: italic;
 	}
 }
 
 pre {
-	padding: $app-box-pad*0.65;
+	padding: $app-pad*0.65;
 	white-space: pre;
 	white-space: pre-wrap;
 	white-space: pre-line;
@@ -174,5 +210,9 @@ pre {
 }
 
 hr {
-	margin: $app-box-pad*1.25 0 $app-box-pad;
+	margin: $app-pad*1.25 0 $app-pad;
+}
+
+em {
+	font-style: italic;
 }

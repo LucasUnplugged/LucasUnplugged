@@ -1,0 +1,123 @@
+
+
+// FORMS
+
+input[type="text"],
+textarea {
+	display: inline-block;
+	position: relative;
+	width: 87%;
+	min-width: 150px;
+	max-width: 325px;
+	margin: 0 0 5px;
+	padding: 10px 15px 8px;
+	font-size: 17px;
+	font-family: $app-font-title;
+	color: $app-color-text;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+	background: $app-color-box;
+	//box-shadow: 0 2px 0 1px #3f3f3f inset;
+	border: none;
+	border-top: 2px solid rgba(0, 0, 0, 0.85);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+	@include border-radius();
+}
+
+label, input[type=button], input[type=submit], button {
+	cursor: pointer;
+}
+input, button {
+	font-family: $app-font-title;
+}
+
+form {
+	input[type=submit],
+	input[type=button] {
+		margin-right: 0;
+	}
+
+	.messageBox {
+		float: left;
+		padding: $app-box-pad/2 0;
+	}
+	.success {
+		color: $app-color-success;
+	}
+	.fail {
+		color: $app-color-alert;
+	}
+}
+
+
+
+// BUTTONS
+
+button,
+input[type=submit],
+input[type=button],
+.btn {
+	@include btn;
+}
+
+.iconBtn {
+	line-height: 0.5;
+	font-size: $app-h1;
+	font-weight: 700;
+}
+
+div.collapse {
+	display: none;
+}
+div.expand {
+	display: block;
+}
+
+.inset {
+	display: inline-block;
+	height: 1.8rem;
+	margin: 0;
+	padding: $app-box-pad/6;
+	line-height: 12px;
+	font-size: $app-p * 0.5;
+	vertical-align: middle;
+	text-align: center;
+	border: 1px solid $app-color-link;
+	@include border-radius;
+
+	@include media ($app-tablet) {
+		height: 1.5rem;
+	}
+
+	h1 &,
+	h2 &,
+	h3 & {
+		position: relative;
+		right: -30px;
+		top: -2px;
+	}
+
+	&:hover {
+		color: $app-color-white;
+		background: $app-color-link;
+		text-decoration: none;
+	}
+
+	footer .social & {
+		height: 3.05rem;
+		margin: 0 $app-box-pad/4 0 0;
+		padding: $app-box-pad/3;
+		line-height: 15px;
+		color: $app-color-alt;
+		font-size: $app-p;
+		border-color: $app-color-alt;
+	
+		&:hover {
+			color: $app-color-text;
+			background: $app-color-alt;
+		}
+
+		@include media ($app-tablet) {
+			height: 2.77rem;
+		}
+	}
+}

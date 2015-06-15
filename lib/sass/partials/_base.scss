@@ -11,12 +11,12 @@ $grid-columns: 12;
 $max-width: 1088px;
 
 // Breakpoints
-$app-desktop: new-breakpoint(min-width 1201px);
-$app-laptop: new-breakpoint($default-feature 1200px);
+$app-desktop: new-breakpoint($default-feature  1200px);
+$app-laptop: new-breakpoint($default-feature 1024px);
 $app-newschool: new-breakpoint(min-width 1025px);
 $app-oldschool: new-breakpoint(max-width 1024px);
 $app-tablet: new-breakpoint($default-feature 768px 6);
-$app-mobile: new-breakpoint($default-feature 480px 2);
+$app-mobile: new-breakpoint($default-feature 520px 2);
 
 // Colours
 $app-color-main:           #BB3A6A; // Fuchsia
@@ -27,6 +27,7 @@ $app-color-alt-light:      #64E4A4;
 $app-color-alt-dark:       #226C47;
 
 $app-color-white:          #fff;
+$app-color-black:          #000;
 $app-color-box:            #F3F3F3; // Light grey
 $app-color-box-dark:       darken($app-color-box, 20%); // Grey
 $app-color-text:           #444; // Dark grey
@@ -36,8 +37,8 @@ $app-color-link:           $app-color-main;
 $app-color-link-light:     $app-color-alt-light;
 $app-color-link-dark:      $app-color-main-medium;
 
-$app-color-success:        #090; // Green
-$app-color-alert:          #900; // Red
+$app-color-success:        #CDD255; // Green
+$app-color-alert:          #EE2040; // Red
 
 // Typography
 $app-font-main: "Merriweather", "Book Antiqua", Palatino, serif;
@@ -49,7 +50,7 @@ $app-font-size: rem($em-base + 3);
 $app-h1: $app-font-size * 1.5;
 $app-p: $app-font-size;
 $app-feature: $app-font-size * 2;
-$app-feature-h1: $app-h1 * 1.5;
+$app-feature-h1: $app-h1 * 1.4;
 $app-feature-p: $app-font-size * 1.25;
 $app-line-height: 1.75;
 
@@ -81,7 +82,7 @@ $app-box-pad: 35px;
 	}
 }
 
-@mixin border-radius($radii) {
+@mixin border-radius($radii: $app-radius) {
 	@include prefixer(border-radius, $radii, (webkit moz spec));
 }
 
@@ -101,6 +102,57 @@ $app-box-pad: 35px;
 	}
 }
 
+$app-color-main:           #BB3A6A; // Fuchsia
+$app-color-main-medium:    #8E284E;
+$app-color-main-dark:      #752141;
+
+@mixin btn ($border: $app-color-main-dark, $highlight: lighten($app-color-main, 10%), $from: $app-color-main, $to: $app-color-main-medium ) {
+	display: inline-block;
+	position: relative;
+	min-width: 150px;
+	height: 50px;
+	line-height: 20px;
+	// font-size: 20px;
+	padding: ($app-box-pad - 20);
+	margin: $app-pad*0.67 $app-pad*0.67 $app-pad*0.67 0;
+	text-align: center;
+	vertical-align: middle;
+	color: $app-color-white;
+	-webkit-font-smoothing: subpixel-antialiased;
+	cursor: pointer;
+	text-shadow: 0 1px 1px $border;
+	border: 1px solid $border;
+	border-bottom-width: 3px;
+	box-shadow: 0 1px 0 0 $highlight inset;
+	box-sizing: border-box;
+	@include border-radius();
+	@include linear-gradient ($from, $to);
+	@include transition ( all 0s );
+
+	&:hover,
+	&:focus {
+		color: $app-color-white;
+		text-shadow: 0 1px 1px $app-color-alt-dark;
+		border-color: $app-color-alt-dark;
+		box-shadow: 0 1px 0 0 $app-color-alt-light inset;
+		@include linear-gradient ($app-color-alt, darken($app-color-alt, 6%));
+	}
+
+	.dark & {
+		text-shadow: 0 1px 1px $app-color-alt-dark;
+		border-color: $app-color-alt-dark;
+		box-shadow: 0 1px 0 0 $app-color-alt-light inset;
+		@include linear-gradient ($app-color-alt, darken($app-color-alt, 6%));
+
+		&:hover,
+		&:focus {
+			text-shadow: 0 1px 1px $border;
+			border-color: $border;
+			box-shadow: 0 1px 0 0 $highlight inset;
+			@include linear-gradient ($from, $to);
+		}
+	}
+}
 
 
 
@@ -159,6 +211,18 @@ img, object, video {
 	}
 }
 
+button,
+input[type="submit"],
+.btn {
+	@include btn;
+}
+
+.iconBtn {
+	line-height: 0.85;
+	font-size: $app-h1;
+	font-weight: 700;
+}
+
 :invalid {
 	border: none;
 }
@@ -167,4 +231,11 @@ img, object, video {
 	content: "";
 	display: table;
 	clear: both;
+}
+
+div.collapse {
+	display: none;
+}
+div.expand {
+	display: block;
 }

@@ -4,27 +4,66 @@
 	padding-left: $app-box-pad/2;
 	padding-right: $app-box-pad/2;
 	
-	@include media($app-mobile) {
-		// padding-left: $app-box-pad;
-		// padding-right: $app-box-pad;
-	}
 	@include media($app-tablet) {
 		padding: 0;
 	}
 }
 
-article, header, main {
+article, header, main, footer {
 	> section {
 		@extend .wrap;
 	}
+
+	&.dark, .dark {
+		color: $app-color-text-light;
+		background-color: $app-color-text;
+	}
+	&.medium, .medium {
+		background-color: $app-color-box;
+	}
+	&.light, .light {
+		background-color: $app-color-white;
+	}
 }
+
 article {
 	> header {
 		@extend .wrap;
 	}
 }
 
+section.break {
+	display: block;
+	clear: both;
+	width: 100% !important;
+	padding: 0 !important;
+	margin: $app-pad*2 0 !important;
+	text-align: center;
 
+	button {
+		min-width: 50px;
+		margin: 0;
+	}
+
+	&::before,
+	&::after {
+		content: "";
+		display: inline-block;
+		position: relative;
+		top: -3px;
+		width: 30%;
+		height: 1px;
+		margin: 0 $app-box-pad;
+		background: $app-color-box;
+	}
+
+	&::before {
+		margin-left: 0;
+	}
+	&::after {
+		margin-right: 0;
+	}
+}
 
 // HEADER
 #bg {
@@ -68,9 +107,10 @@ header[role="banner"] {
 	position: absolute;
 	top: 0;
 	width: 100%;
+	background: none;
 	z-index: 1000;
 
-	@include media($app-newschool) {
+	@include media($app-laptop) {
 		position: fixed;
 
 		&.overlay {
@@ -123,7 +163,11 @@ header[role="banner"] {
 
 		li {
 			display: inline-block;
-			list-style: none;
+			padding: 0;
+			
+			&::before {
+				content: "";
+			}
 		}
 
 		.logo {
@@ -158,20 +202,27 @@ header[role="banner"] {
 
 // MAIN
 main {
+	> article > div,
 	> article,
-	> section {
+	> section,
+	> article > section {
 		padding: $app-box-pad*2 0;
 
-		&.dark {
-			background-color: $app-color-text;
-		}
-		&.medium {
-			background-color: $app-color-box;
-		}
+		&.dark,
+		&.medium,
 		&.light {
-			background-color: $app-color-white;
-		}
+			padding-left: $app-box-pad/2;
+			padding-right: $app-box-pad/2;
 
+			@include media($app-desktop) {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+	}
+
+	header {
+		text-align: center;
 	}
 }
 
@@ -215,7 +266,7 @@ main {
 		text-align: center;
 		max-width: 900px;
 		padding: 0 0 3rem;
-		margin: 0 15px 3rem;
+		margin: 0 0 3rem;
 		border-bottom: 3px solid $app-color-white;
 
 		&:last-child {
@@ -271,10 +322,11 @@ main {
 
 			div, h2 {
 				position: relative;
+				max-width: 500px;
 				padding: 0 0 0 140px;
 				text-align: left;
 				line-height: $app-line-height * 0.65;
-				font-size: $app-feature-h1 * 0.72;
+				font-size: $app-feature-h1 * 0.68;
 
 				&:nth-child(3n) {
 					color: $app-color-main;
@@ -295,16 +347,16 @@ main {
 					position: absolute;
 					right: 100%;
 					margin-right: -120px;
-					line-height: 6.8rem;
+					line-height: 6rem;
 					font-size: $app-feature-h1 * 2.75;
 					font-weight: 700;
 				}
 
 				@include media($app-mobile) {
 					width: 100%;
-					max-width: 768px;
+					// max-width: 768px;
 					line-height: $app-line-height * 0.65;
-					font-size: $app-feature-h1 * 0.8;
+					font-size: $app-feature-h1 * 0.7;
 					padding-left: 180px;
 
 					span {
@@ -316,10 +368,9 @@ main {
 
 				@include media($app-tablet) {
 					width: 48%;
-					max-width: 500px;
 					margin: 3rem auto 0;
-					line-height: $app-line-height * 0.65;
-					font-size: $app-feature-h1 * 0.85;
+					// line-height: $app-line-height * 0.65;
+					font-size: $app-feature-h1 * 0.75;
 
 					&:nth-child(1),
 					&:nth-child(2) {
@@ -327,7 +378,7 @@ main {
 					}
 
 					span {
-						line-height: 7.5rem;
+						line-height: 7rem;
 						font-size: $app-feature-h1 * 3.1;
 					}
 				}
@@ -376,5 +427,280 @@ main {
 		@include media($app-tablet) {
 			font-size: 200%;
 		}
+	}
+}
+
+
+#cv {
+	padding: 0;
+
+	> header {
+		padding: $app-box-pad*2 0;
+
+		blockquote:last-child {
+			max-width: 640px;
+			margin: 0 auto;
+		}
+	}
+
+	section {
+		h2 {
+			margin-top: 0;
+			margin-bottom: $app-box-pad /3;
+			color: $app-color-main;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+	}
+
+	.skills {
+		display: inline-block;
+		width: 100%;
+		margin-bottom: $app-box-pad /2;
+
+		@include media ($app-mobile) {
+			width: 45%;
+			margin-bottom: $app-box-pad;
+		}
+		@include media ($app-tablet) {
+			width: 30%;
+			margin-bottom: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		h3 {
+			margin: 0 0 10px;
+			text-align: left;
+
+			span {
+				&:first-child {
+					display: inline-block;
+					width: 52%;
+					padding: 0 $app-box-pad/2 0 0;
+					color: $app-color-black;
+					font-size: $app-feature-p * 0.75;
+					font-weight: 500;
+					text-align: right;
+				}
+
+				&.on, &.off {
+					display: inline-block;
+					width: 14px;
+					height: 14px;
+					margin: 3px 2px;
+					padding: 0;
+					line-height: 100px;
+					vertical-align: text-bottom;
+					color: $app-color-main;
+					background: $app-color-main;
+					box-shadow: 0 2px 0 0 $app-color-main-dark inset;
+					border-bottom: 1px solid $app-color-white;
+					overflow: hidden;
+					@include border-radius(20px);
+				}
+				&.on {}
+				&.off {
+					background: $app-color-box-dark;
+					box-shadow: 0 2px 0 0 $app-color-text-medium inset;
+				}
+			}
+		}
+	}
+
+
+
+	#skillsGrid {
+		@extend .medium;
+		display: flex;
+		padding: $app-box-pad 0;
+		text-align: center;
+
+		.wrap {
+			width: 100%;
+		}
+
+		h2 {
+			margin-bottom: $app-pad;
+			color: $app-color-text;
+		}
+	}
+
+
+	#experience {
+		padding: $app-box-pad*2 $app-box-pad/2;
+
+		@include media($app-desktop) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		> section {
+			position: relative;
+			margin-top: $app-box-pad*2.5;
+			font-size: $app-p*0.85;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			@include media ($app-tablet) {
+				width: 60%;
+				padding-right: $app-box-pad;
+				box-sizing: border-box;
+
+				aside {
+					position: absolute;
+					right: -66.6666667%;
+					top: 0;
+					width: 66.6666667%;
+				}
+			}
+			@include media ($app-laptop) {
+				width: 66%;
+				font-size: $app-p;
+
+				aside {
+					right: -50%;
+					width: 50%;
+				}
+			}
+
+			header {
+				text-align: left;
+			}
+
+			header,
+			aside {
+				h3 {
+					margin-top: 0;
+
+					span {
+						float: right;
+						color: $app-color-text-medium;
+						font-weight: 300;
+						font-size: $app-p;
+					}
+				}
+			}
+
+			aside {
+				padding: $app-box-pad;
+				background: $app-color-box;
+
+				@include media ($app-tablet) {
+					padding-top: 40px;
+				}
+
+				h3 {
+					color: $app-color-text-medium;
+				}
+
+				ul {
+					padding: 0;
+					margin: 0;
+					font-size: $app-p *0.8;
+				}
+			}
+
+			> ul {
+				padding-bottom: $app-box-pad/3;
+
+				@include media ($app-mobile) {
+					@include columns (2);
+				}
+			}
+
+			ul.tech {
+				@include columns (1);
+				position: relative;
+				padding: 4px 0;
+				margin: $app-pad/2 0 $app-pad $app-box-pad;
+				color: $app-color-text-medium;
+				border-top: 1px solid $app-color-box;
+				border-bottom: 1px solid $app-color-box;
+
+				&::before {
+					@include transform(rotateZ(-90deg));
+					content: "Tech";
+					position: absolute;
+					left: ($app-box-pad * (-1)) - 16;
+					top: 50%;
+					line-height: 1;
+					margin-top: -11px;
+					font-weight: 700;
+					font-family: $app-font-title;
+					text-transform: uppercase;
+				}
+
+				li {
+					display: inline-block;
+					float: left;
+					padding: 0;
+					margin: 2px $app-box-pad/2;
+					font-size: $app-p *0.8;
+
+					&::before {
+						content: "";
+					}
+				}
+			}
+		}
+	}
+
+
+	#cvExtra {
+		> section {
+			padding-top: $app-pad*2;
+
+			&:first-child {
+				padding-top: 0;
+			}
+
+			p {
+				margin: $app-pad/2 0 0;
+			}
+		}
+	}
+
+} // #cv
+
+
+footer {
+	@extend .dark;
+	padding: $app-box-pad*2 $app-box-pad/2 $app-box-pad;
+
+	@include media ($app-desktop) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	h2 {
+		margin: 0 0 $app-pad/2;
+	}
+
+	.wrap > section {
+		margin-bottom: $app-pad*2;
+
+		@include media($app-mobile) {
+			@include span-columns(2);
+		}
+		@include media ($app-tablet) {
+			@include span-columns (6);
+		}
+		@include media ($app-laptop) {
+			@include span-columns (4);
+			margin-bottom: 0;
+
+			&:last-child {
+				text-align: right;
+			}
+		}
+	}
+
+	.copy {
+		text-align: right;
 	}
 }
