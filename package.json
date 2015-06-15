@@ -2,7 +2,7 @@
   "name": "lucasunplugged.com",
   "version": "1.0.0",
   "description": "First node version of my personal website (lucasunplugged.com).",
-  "main": "app.js",
+  "main": "server.js",
   "dependencies": {
     "http-server": "^0.8.0"
   },
