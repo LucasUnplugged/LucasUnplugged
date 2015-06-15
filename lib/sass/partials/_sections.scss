@@ -213,6 +213,12 @@ header[role="banner"] {
 
 // MAIN
 main {
+	padding-top: $app-box-pad*2;
+
+	@include media ($app-mobile) {
+		padding-top: 0;
+	}
+
 	> article > div,
 	> article,
 	> section,
