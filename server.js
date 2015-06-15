@@ -7,6 +7,6 @@ var server = httpServer.createServer({
 		'Access-Control-Allow-Origin': '*',
 		'Access-Control-Allow-Credentials': 'true'
 	}
-}).listen(8888, '127.0.0.1');
+}).listen(process.env.PORT);
 // this.callback(null, server);
-console.log('Server running at http://127.0.0.1:8888');
+console.log('Server running at ' + process.env.PORT);
