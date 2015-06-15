@@ -45,23 +45,25 @@ section.break {
 		margin: 0;
 	}
 
-	&::before,
-	&::after {
-		content: "";
-		display: inline-block;
-		position: relative;
-		top: -3px;
-		width: 30%;
-		height: 1px;
-		margin: 0 $app-box-pad;
-		background: $app-color-box;
-	}
+	@include media ($app-mobile) {
+		&::before,
+		&::after {
+			content: "";
+			display: inline-block;
+			position: relative;
+			top: -3px;
+			width: 30%;
+			height: 1px;
+			margin: 0 $app-box-pad;
+			background: $app-color-box;
+		}
 
-	&::before {
-		margin-left: 0;
-	}
-	&::after {
-		margin-right: 0;
+		&::before {
+			margin-left: 0;
+		}
+		&::after {
+			margin-right: 0;
+		}
 	}
 }
 
@@ -104,24 +106,33 @@ section.break {
 
 header[role="banner"] {
 	@extend .dark;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	width: 100%;
 	background: none;
 	z-index: 1000;
 
-	@include media($app-laptop) {
-		position: fixed;
+	&.overlay {
+		padding-bottom: 7px;
+		background: rgba(48, 48, 48, 0.88);
 
-		&.overlay {
-			background: rgba(48, 48, 48, 0.88);
+		@include media($app-laptop) {
+			padding-bottom: 0;
+		}
 
-			nav {
-				margin: 0;
+		nav {
+			margin: 0;
 
-				&, .logo {
-					font-size: $app-feature-p;
-				}
+			&, .logo {
+				font-size: $app-feature-p;
+			}
+		}
+
+		.logo {
+			display: none;
+
+			@include media($app-laptop) {
+				display: block;
 			}
 		}
 	}
@@ -133,7 +144,7 @@ header[role="banner"] {
 	// NAVIGATION
 	nav {
 		position: relative;
-		margin: ($app-box-pad/2) 0;
+		margin: $app-box-pad/2 0;
 		font-family: $app-font-title;
 
 		@include media($app-tablet) {
@@ -228,7 +239,7 @@ main {
 
 #blurb {
 	padding: 0;
-	margin-top: 190px;
+	margin-top: 220px;
 	margin-bottom: $app-box-pad*2;
 	
 	@include media($app-mobile) {
@@ -250,6 +261,7 @@ main {
 	}
 
 	h1 {
+		margin-bottom: $app-pad*0.75;
 		font-size: $app-feature-h1;
 		text-align: center;
 	}
@@ -578,10 +590,16 @@ main {
 					margin-top: 0;
 
 					span {
-						float: right;
+						display: block;
+						margin: $app-box-pad/5 0 0;
 						color: $app-color-text-medium;
 						font-weight: 300;
 						font-size: $app-p;
+
+						@include media ($app-tablet) {
+							float: right;
+							margin: 0;
+						}
 					}
 				}
 			}
@@ -614,8 +632,12 @@ main {
 			}
 
 			ul.tech {
+				@include clearfix;
 				@include columns (1);
+				display: inline-block;
 				position: relative;
+				clear: both;
+				width: 90%;
 				padding: 4px 0;
 				margin: $app-pad/2 0 $app-pad $app-box-pad;
 				color: $app-color-text-medium;

@@ -171,7 +171,7 @@ ol {
 }
 
 blockquote {
-	margin: $app-pad 0;
+	margin: $app-pad*0.75 0;
 	padding: 0 $app-pad;
 	color: $app-color-text-medium;
 	font-family: $app-font-script;
@@ -182,6 +182,10 @@ blockquote {
 	-webkit-font-smoothing: antialiased;
 	border: none;
 	text-align: center;
+
+	@include media ($app-mobile) {
+		margin: $app-pad 0;
+	}
 
 	address {
 		font-weight: 300;

@@ -92,8 +92,12 @@ div.expand {
 	h2 &,
 	h3 & {
 		position: relative;
-		right: -30px;
+		right: -10px;
 		top: -2px;
+
+		@include media ($app-mobile) {
+			right: -30px;
+		}
 	}
 
 	&:hover {

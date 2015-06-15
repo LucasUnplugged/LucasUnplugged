@@ -189,6 +189,7 @@ body {
 	line-height: $app-line-height;
 	font-family: $app-font-main;
 	color: $app-color-text;
+	overflow: hidden;
 	
 	&.is-loading {
 		background: $app-color-white url("../img/loading.gif") center center no-repeat;

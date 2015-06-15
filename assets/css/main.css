@@ -220,6 +220,7 @@ body {
   line-height: 1.75;
   font-family: "Merriweather", "Book Antiqua", Palatino, serif;
   color: #444444;
+  overflow: hidden;
 }
 body.is-loading {
   background: white url("../img/loading.gif") center center no-repeat;
@@ -500,7 +501,7 @@ li p {
 }
 
 blockquote {
-  margin: 1.618em 0;
+  margin: 1.2135em 0;
   padding: 0 1.618em;
   color: #767676;
   font-family: "Libre Baskerville", "Merriweather", serif;
@@ -511,6 +512,11 @@ blockquote {
   -webkit-font-smoothing: antialiased;
   border: none;
   text-align: center;
+}
+@media screen and (min-width: 520px) {
+  blockquote {
+    margin: 1.618em 0;
+  }
 }
 blockquote address {
   font-weight: 300;
@@ -728,8 +734,13 @@ div.expand {
 }
 h1 .inset, h2 .inset, h3 .inset {
   position: relative;
-  right: -30px;
+  right: -10px;
   top: -2px;
+}
+@media screen and (min-width: 520px) {
+  h1 .inset, h2 .inset, h3 .inset {
+    right: -30px;
+  }
 }
 .inset:hover {
   color: white;
@@ -797,21 +808,23 @@ section.break button {
   min-width: 50px;
   margin: 0;
 }
-section.break::before, section.break::after {
-  content: "";
-  display: inline-block;
-  position: relative;
-  top: -3px;
-  width: 30%;
-  height: 1px;
-  margin: 0 35px;
-  background: #f3f3f3;
-}
-section.break::before {
-  margin-left: 0;
-}
-section.break::after {
-  margin-right: 0;
+@media screen and (min-width: 520px) {
+  section.break::before, section.break::after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    top: -3px;
+    width: 30%;
+    height: 1px;
+    margin: 0 35px;
+    background: #f3f3f3;
+  }
+  section.break::before {
+    margin-left: 0;
+  }
+  section.break::after {
+    margin-right: 0;
+  }
 }
 
 #bg {
@@ -849,24 +862,33 @@ section.break::after {
 }
 
 header[role="banner"] {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   background: none;
   z-index: 1000;
 }
+header[role="banner"].overlay {
+  padding-bottom: 7px;
+  background: rgba(48, 48, 48, 0.88);
+}
 @media screen and (min-width: 1024px) {
-  header[role="banner"] {
-    position: fixed;
-  }
   header[role="banner"].overlay {
-    background: rgba(48, 48, 48, 0.88);
+    padding-bottom: 0;
   }
-  header[role="banner"].overlay nav {
-    margin: 0;
-  }
-  header[role="banner"].overlay nav, header[role="banner"].overlay nav .logo {
-    font-size: 1.48438rem;
+}
+header[role="banner"].overlay nav {
+  margin: 0;
+}
+header[role="banner"].overlay nav, header[role="banner"].overlay nav .logo {
+  font-size: 1.48438rem;
+}
+header[role="banner"].overlay .logo {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  header[role="banner"].overlay .logo {
+    display: block;
   }
 }
 header[role="banner"] nav {
@@ -979,7 +1001,7 @@ main header {
 
 #blurb {
   padding: 0;
-  margin-top: 190px;
+  margin-top: 220px;
   margin-bottom: 70px;
 }
 @media screen and (min-width: 520px) {
@@ -1032,6 +1054,7 @@ main header {
   }
 }
 #blurb h1 {
+  margin-bottom: 1.2135em;
   font-size: 2.49375rem;
   text-align: center;
 }
@@ -1321,10 +1344,18 @@ main header {
 }
 #cv #experience > section header h3 span,
 #cv #experience > section aside h3 span {
-  float: right;
+  display: block;
+  margin: 7px 0 0;
   color: #767676;
   font-weight: 300;
   font-size: 1.1875rem;
+}
+@media screen and (min-width: 768px) {
+  #cv #experience > section header h3 span,
+  #cv #experience > section aside h3 span {
+    float: right;
+    margin: 0;
+  }
 }
 #cv #experience > section aside {
   padding: 35px;
@@ -1357,12 +1388,20 @@ main header {
   -webkit-columns: 1;
   -moz-columns: 1;
   columns: 1;
+  display: inline-block;
   position: relative;
+  clear: both;
+  width: 90%;
   padding: 4px 0;
   margin: 0.809em 0 1.618em 35px;
   color: #767676;
   border-top: 1px solid #f3f3f3;
   border-bottom: 1px solid #f3f3f3;
+}
+#cv #experience > section ul.tech::after {
+  clear: both;
+  content: "";
+  display: table;
 }
 #cv #experience > section ul.tech::before {
   -webkit-transform: rotateZ(-90deg);
