@@ -1,0 +1,40 @@
+{
+  "name": "lucasunplugged.com",
+  "version": "1.0.0",
+  "description": "First node version of my personal website (lucasunplugged.com).",
+  "main": "app.js",
+  "dependencies": {
+    "http-server": "^0.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucasUnplugged/LucasUnplugged.git"
+  },
+  "keywords": [
+    "web",
+    "developer",
+    "designer",
+    "javascript",
+    "jquery",
+    "node",
+    "mongodb",
+    "rest",
+    "html5",
+    "css3",
+    "sass",
+    "php",
+    "wordpress",
+    "wcag",
+    "responsive"
+  ],
+  "author": "Lucas Castro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucasUnplugged/LucasUnplugged/issues"
+  },
+  "homepage": "https://github.com/LucasUnplugged/LucasUnplugged"
+}
