@@ -219,11 +219,11 @@ body {
   font-size: 1.1875rem;
   line-height: 1.75;
   font-family: "Merriweather", "Book Antiqua", Palatino, serif;
-  color: #444444;
+  color: #444;
   overflow: hidden;
 }
 body.is-loading {
-  background: white url("../img/loading.gif") center center no-repeat;
+  background: #fff url("../img/loading.gif") center center no-repeat;
 }
 body.is-loading > header, body.is-loading > div, body.is-loading > section, body.is-loading > article {
   display: none;
@@ -253,7 +253,7 @@ input[type="submit"],
   margin: 1.08406em 1.08406em 1.08406em 0;
   text-align: center;
   vertical-align: middle;
-  color: white;
+  color: #fff;
   -webkit-font-smoothing: subpixel-antialiased;
   cursor: pointer;
   text-shadow: 0 1px 1px #752141;
@@ -264,9 +264,9 @@ input[type="submit"],
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  background-color: #bb3a6a;
-  background-image: -webkit-linear-gradient(#bb3a6a, #8e284e);
-  background-image: linear-gradient(#bb3a6a, #8e284e);
+  background-color: #BB3A6A;
+  background-image: -webkit-linear-gradient(#BB3A6A, #8E284E);
+  background-image: linear-gradient(#BB3A6A, #8E284E);
   -webkit-transition: all 0s;
   -moz-transition: all 0s;
   transition: all 0s;
@@ -276,13 +276,13 @@ input[type="submit"]:hover,
 input[type="submit"]:focus,
 .btn:hover,
 .btn:focus {
-  color: white;
-  text-shadow: 0 1px 1px #226c47;
-  border-color: #226c47;
-  box-shadow: 0 1px 0 0 #64e4a4 inset;
-  background-color: #33b272;
-  background-image: -webkit-linear-gradient(#33b272, #2c9a63);
-  background-image: linear-gradient(#33b272, #2c9a63);
+  color: #fff;
+  text-shadow: 0 1px 1px #226C47;
+  border-color: #226C47;
+  box-shadow: 0 1px 0 0 #64E4A4 inset;
+  background-color: #33B272;
+  background-image: -webkit-linear-gradient(#33B272, #2c9a63);
+  background-image: linear-gradient(#33B272, #2c9a63);
 }
 .dark button, header[role="banner"] button, footer button, .dark
 input[type="submit"], header[role="banner"]
@@ -291,12 +291,12 @@ input[type="submit"], .dark
 .btn, header[role="banner"]
 .btn, footer
 .btn {
-  text-shadow: 0 1px 1px #226c47;
-  border-color: #226c47;
-  box-shadow: 0 1px 0 0 #64e4a4 inset;
-  background-color: #33b272;
-  background-image: -webkit-linear-gradient(#33b272, #2c9a63);
-  background-image: linear-gradient(#33b272, #2c9a63);
+  text-shadow: 0 1px 1px #226C47;
+  border-color: #226C47;
+  box-shadow: 0 1px 0 0 #64E4A4 inset;
+  background-color: #33B272;
+  background-image: -webkit-linear-gradient(#33B272, #2c9a63);
+  background-image: linear-gradient(#33B272, #2c9a63);
 }
 .dark button:hover, header[role="banner"] button:hover, footer button:hover, .dark button:focus, header[role="banner"] button:focus, footer button:focus, .dark
 input[type="submit"]:hover, header[role="banner"]
@@ -314,9 +314,9 @@ input[type="submit"]:focus, .dark
   text-shadow: 0 1px 1px #752141;
   border-color: #752141;
   box-shadow: 0 1px 0 0 #cc5c86 inset;
-  background-color: #bb3a6a;
-  background-image: -webkit-linear-gradient(#bb3a6a, #8e284e);
-  background-image: linear-gradient(#bb3a6a, #8e284e);
+  background-color: #BB3A6A;
+  background-image: -webkit-linear-gradient(#BB3A6A, #8E284E);
+  background-image: linear-gradient(#BB3A6A, #8E284E);
 }
 
 .iconBtn {
@@ -344,29 +344,29 @@ div.expand {
 }
 
 ::-moz-selection {
-  background: #bb3a6a !important;
-  color: white !important;
+  background: #BB3A6A !important;
+  color: #fff !important;
   text-shadow: none;
 }
 
 ::selection {
-  background: #bb3a6a !important;
-  color: white !important;
+  background: #BB3A6A !important;
+  color: #fff !important;
   text-shadow: none;
 }
 
 a {
-  color: #bb3a6a;
+  color: #BB3A6A;
   text-decoration: none;
 }
 a:hover, a:focus {
-  color: #bb3a6a;
+  color: #BB3A6A;
   text-decoration: underline;
 }
 
 h1, h2, h3, h4, h5, h6 {
   padding: 0;
-  margin: 1.618em 0;
+  margin: 2.0225em 0 1.2135em;
   font-weight: 700;
   font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
   line-height: 1.18967;
@@ -381,16 +381,16 @@ h1.sub-title, h2.sub-title, h3.sub-title, h4.sub-title, h5.sub-title, h6.sub-tit
 }
 
 .dark a, header[role="banner"] a, footer a {
-  color: #64e4a4;
+  color: #64E4A4;
 }
 .dark a:hover, header[role="banner"] a:hover, footer a:hover, .dark a:focus, header[role="banner"] a:focus, footer a:focus {
-  color: white;
+  color: #fff;
 }
 .dark h1, header[role="banner"] h1, footer h1, .dark h2, header[role="banner"] h2, footer h2, .dark h3, header[role="banner"] h3, footer h3, .dark h4, header[role="banner"] h4, footer h4, .dark h5, header[role="banner"] h5, footer h5 {
-  color: white;
+  color: #fff;
 }
 .dark, header[role="banner"], footer, .dark h5, header[role="banner"] h5, footer h5, .dark p, header[role="banner"] p, footer p, .dark li, header[role="banner"] li, footer li, .dark small, header[role="banner"] small, footer small, .dark blockquote, header[role="banner"] blockquote, footer blockquote, .dark code, header[role="banner"] code, footer code {
-  color: #f3f3f3;
+  color: #F3F3F3;
 }
 
 h1, h2 {
@@ -459,7 +459,7 @@ li::before {
   left: 0;
   top: 0;
   line-height: 1;
-  color: #bb3a6a;
+  color: #BB3A6A;
   font-size: 180%;
 }
 li:first-child {
@@ -575,9 +575,9 @@ textarea {
   padding: 10px 15px 8px;
   font-size: 17px;
   font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
-  color: #444444;
+  color: #444;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
-  background: #f3f3f3;
+  background: #F3F3F3;
   border: none;
   border-top: 2px solid rgba(0, 0, 0, 0.85);
   border-bottom: 1px solid rgba(255, 255, 255, 0.35);
@@ -603,10 +603,10 @@ form .messageBox {
   padding: 17.5px 0;
 }
 form .success {
-  color: #cdd255;
+  color: #CDD255;
 }
 form .fail {
-  color: #ee2040;
+  color: #EE2040;
 }
 
 button,
@@ -622,7 +622,7 @@ input[type=button],
   margin: 1.08406em 1.08406em 1.08406em 0;
   text-align: center;
   vertical-align: middle;
-  color: white;
+  color: #fff;
   -webkit-font-smoothing: subpixel-antialiased;
   cursor: pointer;
   text-shadow: 0 1px 1px #752141;
@@ -633,9 +633,9 @@ input[type=button],
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  background-color: #bb3a6a;
-  background-image: -webkit-linear-gradient(#bb3a6a, #8e284e);
-  background-image: linear-gradient(#bb3a6a, #8e284e);
+  background-color: #BB3A6A;
+  background-image: -webkit-linear-gradient(#BB3A6A, #8E284E);
+  background-image: linear-gradient(#BB3A6A, #8E284E);
   -webkit-transition: all 0s;
   -moz-transition: all 0s;
   transition: all 0s;
@@ -647,13 +647,13 @@ input[type=button]:hover,
 input[type=button]:focus,
 .btn:hover,
 .btn:focus {
-  color: white;
-  text-shadow: 0 1px 1px #226c47;
-  border-color: #226c47;
-  box-shadow: 0 1px 0 0 #64e4a4 inset;
-  background-color: #33b272;
-  background-image: -webkit-linear-gradient(#33b272, #2c9a63);
-  background-image: linear-gradient(#33b272, #2c9a63);
+  color: #fff;
+  text-shadow: 0 1px 1px #226C47;
+  border-color: #226C47;
+  box-shadow: 0 1px 0 0 #64E4A4 inset;
+  background-color: #33B272;
+  background-image: -webkit-linear-gradient(#33B272, #2c9a63);
+  background-image: linear-gradient(#33B272, #2c9a63);
 }
 .dark button, header[role="banner"] button, footer button, .dark
 input[type=submit], header[role="banner"]
@@ -665,12 +665,12 @@ input[type=button], .dark
 .btn, header[role="banner"]
 .btn, footer
 .btn {
-  text-shadow: 0 1px 1px #226c47;
-  border-color: #226c47;
-  box-shadow: 0 1px 0 0 #64e4a4 inset;
-  background-color: #33b272;
-  background-image: -webkit-linear-gradient(#33b272, #2c9a63);
-  background-image: linear-gradient(#33b272, #2c9a63);
+  text-shadow: 0 1px 1px #226C47;
+  border-color: #226C47;
+  box-shadow: 0 1px 0 0 #64E4A4 inset;
+  background-color: #33B272;
+  background-image: -webkit-linear-gradient(#33B272, #2c9a63);
+  background-image: linear-gradient(#33B272, #2c9a63);
 }
 .dark button:hover, header[role="banner"] button:hover, footer button:hover, .dark button:focus, header[role="banner"] button:focus, footer button:focus, .dark
 input[type=submit]:hover, header[role="banner"]
@@ -694,9 +694,9 @@ input[type=button]:focus, .dark
   text-shadow: 0 1px 1px #752141;
   border-color: #752141;
   box-shadow: 0 1px 0 0 #cc5c86 inset;
-  background-color: #bb3a6a;
-  background-image: -webkit-linear-gradient(#bb3a6a, #8e284e);
-  background-image: linear-gradient(#bb3a6a, #8e284e);
+  background-color: #BB3A6A;
+  background-image: -webkit-linear-gradient(#BB3A6A, #8E284E);
+  background-image: linear-gradient(#BB3A6A, #8E284E);
 }
 
 .iconBtn {
@@ -722,7 +722,7 @@ div.expand {
   font-size: 0.59375rem;
   vertical-align: middle;
   text-align: center;
-  border: 1px solid #bb3a6a;
+  border: 1px solid #BB3A6A;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -743,8 +743,8 @@ h1 .inset, h2 .inset, h3 .inset {
   }
 }
 .inset:hover {
-  color: white;
-  background: #bb3a6a;
+  color: #fff;
+  background: #BB3A6A;
   text-decoration: none;
 }
 footer .social .inset {
@@ -752,13 +752,13 @@ footer .social .inset {
   margin: 0 8.75px 0 0;
   padding: 11.66667px;
   line-height: 15px;
-  color: #33b272;
+  color: #33B272;
   font-size: 1.1875rem;
-  border-color: #33b272;
+  border-color: #33B272;
 }
 footer .social .inset:hover {
-  color: #444444;
-  background: #33b272;
+  color: #444;
+  background: #33B272;
 }
 @media screen and (min-width: 768px) {
   footer .social .inset {
@@ -786,14 +786,14 @@ footer .social .inset:hover {
 }
 
 article.dark, article .dark, article header[role="banner"], article footer, header.dark, header[role="banner"], header .dark, header header[role="banner"], header footer, main.dark, main .dark, main header[role="banner"], main footer, footer.dark, footer, footer .dark, footer header[role="banner"], footer footer {
-  color: white;
-  background-color: #444444;
+  color: #fff;
+  background-color: #444;
 }
 article.medium, #cv article#skillsGrid, article .medium, article #cv #skillsGrid, #cv article #skillsGrid, header.medium, #cv header#skillsGrid, header .medium, header #cv #skillsGrid, #cv header #skillsGrid, main.medium, #cv main#skillsGrid, main .medium, main #cv #skillsGrid, #cv main #skillsGrid, footer.medium, #cv footer#skillsGrid, footer .medium, footer #cv #skillsGrid, #cv footer #skillsGrid {
-  background-color: #f3f3f3;
+  background-color: #F3F3F3;
 }
 article.light, article .light, header.light, header .light, main.light, main .light, footer.light, footer .light {
-  background-color: white;
+  background-color: #fff;
 }
 
 section.break {
@@ -817,7 +817,7 @@ section.break button {
     width: 30%;
     height: 1px;
     margin: 0 35px;
-    background: #f3f3f3;
+    background: #F3F3F3;
   }
   section.break::before {
     margin-left: 0;
@@ -834,7 +834,7 @@ section.break button {
   height: 100vh;
   margin-bottom: 70px;
   text-align: center;
-  background: #444444 url("../img/bg01_dark.jpg") no-repeat center center;
+  background: #444 url("../img/bg01_dark.jpg") no-repeat center center;
   background-size: cover;
 }
 #bg > section {
@@ -944,7 +944,7 @@ header[role="banner"] nav .logo {
   }
 }
 header[role="banner"] nav .logo a {
-  color: white;
+  color: #fff;
 }
 @media screen and (min-width: 1200px) {
   header[role="banner"] nav .logo a {
@@ -952,7 +952,7 @@ header[role="banner"] nav .logo a {
   }
 }
 header[role="banner"] nav .logo a:hover, header[role="banner"] nav .logo a:focus {
-  color: #33b272;
+  color: #33B272;
 }
 
 main > article > div,
@@ -1070,7 +1070,7 @@ main header {
   max-width: 900px;
   padding: 0 0 3rem;
   margin: 0 0 3rem;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid #fff;
 }
 #results > section:last-child {
   border: none;
@@ -1097,16 +1097,16 @@ main header {
   margin-bottom: 0.5rem;
 }
 #results > section div:nth-child(3n-2), #results > section h2:nth-child(3n-2) {
-  color: #bb3a6a;
+  color: #BB3A6A;
 }
 #results > section div:nth-child(3n-1), #results > section h2:nth-child(3n-1) {
-  color: #226c47;
+  color: #226C47;
 }
 #results > section div:nth-child(3n-1):before, #results > section h2:nth-child(3n-1):before {
-  color: #33b272;
+  color: #33B272;
 }
 #results > section div:nth-child(3n), #results > section h2:nth-child(3n) {
-  color: #444444;
+  color: #444;
 }
 @media screen and (min-width: 520px) {
   #results > section div, #results > section h2 {
@@ -1131,16 +1131,16 @@ main header {
   font-size: 1.69575rem;
 }
 #results > section.wide div:nth-child(3n), #results > section.wide h2:nth-child(3n) {
-  color: #bb3a6a;
+  color: #BB3A6A;
 }
 #results > section.wide div:nth-child(3n-2), #results > section.wide h2:nth-child(3n-2) {
-  color: #226c47;
+  color: #226C47;
 }
 #results > section.wide div:nth-child(3n-2):before, #results > section.wide div:nth-child(3n-2) span, #results > section.wide h2:nth-child(3n-2):before, #results > section.wide h2:nth-child(3n-2) span {
-  color: #33b272;
+  color: #33B272;
 }
 #results > section.wide div:nth-child(3n-1), #results > section.wide h2:nth-child(3n-1) {
-  color: #444444;
+  color: #444;
 }
 #results > section.wide div span, #results > section.wide h2 span {
   display: inline-block;
@@ -1225,7 +1225,7 @@ main header {
 #cv section h2 {
   margin-top: 0;
   margin-bottom: 11.66667px;
-  color: #bb3a6a;
+  color: #BB3A6A;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -1257,7 +1257,7 @@ main header {
   display: inline-block;
   width: 52%;
   padding: 0 17.5px 0 0;
-  color: black;
+  color: #000;
   font-size: 1.11328rem;
   font-weight: 500;
   text-align: right;
@@ -1270,10 +1270,10 @@ main header {
   padding: 0;
   line-height: 100px;
   vertical-align: text-bottom;
-  color: #bb3a6a;
-  background: #bb3a6a;
+  color: #BB3A6A;
+  background: #BB3A6A;
   box-shadow: 0 2px 0 0 #752141 inset;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #fff;
   overflow: hidden;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -1288,12 +1288,12 @@ main header {
   padding: 35px 0;
   text-align: center;
 }
-#cv #skillsGrid .wrap, #cv #skillsGrid article > section, #cv #skillsGrid header > section, #cv #skillsGrid main > section, #cv #skillsGrid footer > section, #cv #skillsGrid article > header, #cv #skillsGrid #bg > section {
+#cv #skillsGrid .wrap, #cv #skillsGrid article > section, #cv #skillsGrid header > section, #cv #skillsGrid main > section, #cv #skillsGrid footer > section, #cv #skillsGrid article > header, #cv #skillsGrid #bg > section, #cv #skillsGrid header[role="banner"] > section {
   width: 100%;
 }
 #cv #skillsGrid h2 {
   margin-bottom: 1.618em;
-  color: #444444;
+  color: #444;
 }
 #cv #experience {
   padding: 70px 17.5px;
@@ -1359,7 +1359,7 @@ main header {
 }
 #cv #experience > section aside {
   padding: 35px;
-  background: #f3f3f3;
+  background: #F3F3F3;
 }
 @media screen and (min-width: 768px) {
   #cv #experience > section aside {
@@ -1395,8 +1395,8 @@ main header {
   padding: 4px 0;
   margin: 0.809em 0 1.618em 35px;
   color: #767676;
-  border-top: 1px solid #f3f3f3;
-  border-bottom: 1px solid #f3f3f3;
+  border-top: 1px solid #F3F3F3;
+  border-bottom: 1px solid #F3F3F3;
 }
 #cv #experience > section ul.tech::after {
   clear: both;
@@ -1461,7 +1461,7 @@ footer .wrap > section, footer article > section > section, footer header > sect
     margin-right: 16.03631%;
     width: 100%;
   }
-  footer .wrap > section:last-child, footer article > section > section:last-child, footer header > section > section:last-child, footer main > section > section:last-child, footer > section > section:last-child, footer article > header > section:last-child, footer #bg > section > section:last-child {
+  footer .wrap > section:last-child, footer article > section > section:last-child, footer header > section > section:last-child, footer main > section > section:last-child, footer > section > section:last-child, footer article > header > section:last-child, footer #bg > section > section:last-child, footer header[role="banner"] > section > section:last-child {
     margin-right: 0;
   }
 }
@@ -1472,7 +1472,7 @@ footer .wrap > section, footer article > section > section, footer header > sect
     margin-right: 4.82916%;
     width: 100%;
   }
-  footer .wrap > section:last-child, footer article > section > section:last-child, footer header > section > section:last-child, footer main > section > section:last-child, footer > section > section:last-child, footer article > header > section:last-child, footer #bg > section > section:last-child {
+  footer .wrap > section:last-child, footer article > section > section:last-child, footer header > section > section:last-child, footer main > section > section:last-child, footer > section > section:last-child, footer article > header > section:last-child, footer #bg > section > section:last-child, footer header[role="banner"] > section > section:last-child {
     margin-right: 0;
   }
 }
@@ -1484,13 +1484,15 @@ footer .wrap > section, footer article > section > section, footer header > sect
     width: 31.76157%;
     margin-bottom: 0;
   }
-  footer .wrap > section:last-child, footer article > section > section:last-child, footer header > section > section:last-child, footer main > section > section:last-child, footer > section > section:last-child, footer article > header > section:last-child, footer #bg > section > section:last-child {
+  footer .wrap > section:last-child, footer article > section > section:last-child, footer header > section > section:last-child, footer main > section > section:last-child, footer > section > section:last-child, footer article > header > section:last-child, footer #bg > section > section:last-child, footer header[role="banner"] > section > section:last-child {
     margin-right: 0;
   }
-  footer .wrap > section:last-child, footer article > section > section:last-child, footer header > section > section:last-child, footer main > section > section:last-child, footer > section > section:last-child, footer article > header > section:last-child, footer #bg > section > section:last-child {
+  footer .wrap > section:last-child, footer article > section > section:last-child, footer header > section > section:last-child, footer main > section > section:last-child, footer > section > section:last-child, footer article > header > section:last-child, footer #bg > section > section:last-child, footer header[role="banner"] > section > section:last-child {
     text-align: right;
   }
 }
 footer .copy {
   text-align: right;
 }
+
+/*# sourceMappingURL=main.css.map */

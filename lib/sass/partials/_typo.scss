@@ -13,7 +13,7 @@
 a {
 	color: $app-color-link;
 	text-decoration: none;
-	
+
 	&:hover, &:focus {
 		color: $app-color-main;
 		text-decoration: underline;
@@ -22,11 +22,11 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
 	padding: 0;
-	margin: $app-pad 0;
+	margin: $app-pad*1.25 0 $app-pad*0.75;
 	font-weight: 700;
 	font-family: $app-font-title;
 	line-height: $app-line-height / 1.471;
-	
+
 	&.sub-title {
 		margin-top: 0;
 		line-height: $app-line-height * 0.875;
@@ -39,16 +39,16 @@ h1, h2, h3, h4, h5, h6 {
 .dark {
 	a {
 		color: $app-color-link-light;
-		
+
 		&:hover, &:focus {
 			color: $app-color-white;
 		}
 	}
-	
+
 	h1, h2, h3, h4, h5 {
 		color: $app-color-text-light;
 	}
-	
+
 	&, h5, p, li, small, blockquote, code {
 		color: $app-color-box;
 	}
@@ -89,11 +89,11 @@ h6 {
 p {
 	padding: 0;
 	margin: 0 0 $app-pad*0.65;
-	
+
 	&.feature, .feature & {
 		font-size: $app-feature-p;
 	}
-	
+
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -104,7 +104,7 @@ ul, ol {
 	margin: 0;
 	list-style-type: none;
 	counter-reset: item;
-}	
+}
 li {
 	position: relative;
 	padding: 0 0 0 ($app-box-pad - 10);
@@ -147,7 +147,7 @@ li {
 		content: counter(item, upper-roman);
 	}
 
-	
+
 	ul, ol {
 		padding: $app-pad*0.25 0 0 $app-pad*0.5;
 	}
@@ -159,7 +159,7 @@ li {
 
 ol {
 	li {
-		
+
 	}
 }
 
@@ -197,7 +197,7 @@ figure {
 	padding: 0;
 	margin: 0 0 $app-pad*0.75;
 	border-radius: 0;
-	
+
 	figcaption {
 		padding: $app-pad*0.25 $app-pad*0.65 $app-pad*0.5;
 		font-size: 80%;
@@ -210,7 +210,7 @@ pre {
 	white-space: pre;
 	white-space: pre-wrap;
 	white-space: pre-line;
-	word-wrap: break-word; 
+	word-wrap: break-word;
 }
 
 hr {
