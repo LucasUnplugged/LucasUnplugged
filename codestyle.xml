@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+    <file name="app/core/components/home/_homeModule.js">
+    </file>
+    <file name="app/core/components/home/homeController.js">
+        <error line="8" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+    </file>
+    <file name="app/core/components/wistiaDemo/_wistiaDemoModule.js">
+    </file>
+    <file name="app/core/components/wistiaDemo/wistiaDemoController.js">
+        <error line="8" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+    </file>
+    <file name="app/core/models/sampleData.js">
+    </file>
+    <file name="app/core/shared/sampleService/sampleDataController.js">
+    </file>
+    <file name="app/core/shared/sampleService/sampleDataService.js">
+    </file>
+    <file name="app/core/shared/utils/_utilsModule.js">
+    </file>
+    <file name="app/core/shared/utils/uiAnimateService.js">
+        <error line="7" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+    </file>
+    <file name="app/app.js">
+        <error line="13" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="28" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+    </file>
+    <file name="app/routes.js">
+    </file>
+</checkstyle>

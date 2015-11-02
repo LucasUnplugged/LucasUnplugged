@@ -1,0 +1,58 @@
+///////////////////////
+// VARIABLES
+///////////////////////
+
+// Neat Framework Overrides
+$column: golden-ratio(1em, 3) !default;
+$gutter: golden-ratio(1em, 1) !default;
+//$column: 73px;
+//$gutter: 18px;
+$grid-columns: 12;
+$max-width: 1088px;
+
+// Breakpoints
+$app-desktop: new-breakpoint($default-feature  1200px);
+$app-laptop: new-breakpoint($default-feature 1024px);
+$app-newschool: new-breakpoint(min-width 1025px);
+$app-oldschool: new-breakpoint(max-width 1024px);
+$app-tablet: new-breakpoint($default-feature 768px 6);
+$app-mobile: new-breakpoint($default-feature 520px 2);
+
+// Colours
+$app-color-main: #bb3a6a; // Fuchsia
+$app-color-main-medium: #8e284e;
+$app-color-main-dark: #752141;
+$app-color-alt: #33b272; // Green
+$app-color-alt-light: #64e4a4;
+$app-color-alt-dark: #226c47;
+$app-color-white: #fff;
+$app-color-black: #000;
+$app-color-box: #f3f3f3; // Light grey
+$app-color-box-dark: darken($app-color-box, 20%); // Grey
+$app-color-text: #444; // Dark grey
+$app-color-text-light: $app-color-white;
+$app-color-text-medium: #767676; // Medium grey
+$app-color-link: $app-color-main;
+$app-color-link-light: $app-color-alt-light;
+$app-color-link-dark: $app-color-main-medium;
+$app-color-success: #cdd255; // Green
+$app-color-alert: #ee2040; // Red
+
+// Typography
+$app-font-main: 'Merriweather', 'Book Antiqua', Palatino, serif;
+$app-font-title: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+$app-font-script: 'Libre Baskerville', 'Merriweather', serif;
+$app-font-code: 'Courier New', Courier, monospace;
+$app-font-size: rem($em-base + 3);
+$app-h1: $app-font-size * 1.5;
+$app-p: $app-font-size;
+$app-feature: $app-font-size * 2;
+$app-feature-h1: $app-h1 * 1.4;
+$app-feature-p: $app-font-size * 1.25;
+$app-line-height: 1.75;
+
+// Misc
+$app-radius: 4px;
+$app-shadow: 0;
+$app-pad: $gutter;
+$app-box-pad: 35px;

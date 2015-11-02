@@ -1,0 +1,89 @@
+<section ng-controller="wistiaDemoController">
+	<header role="banner">
+		<section>
+			<nav class="group">
+				<h2 class="logo"><a href="/">Lucas<span class="thin">Castro</span></a></h2>
+				<ul>
+					<li><a href="#intro">Intro</a></li>
+					<li><a href="#demo">Demo</a></li>
+					<li><a href="#gallery">Gallery</a></li>
+				</ul>
+			</nav>
+		</section>
+	</header>
+
+	<!-- Main Content -->
+	<main id="main" role="main">
+		<section id="intro" class="intro dark">
+			<article>
+				<header>
+					<h1>{{ title }}</h1>
+				</header>
+				<p>{{ intro }}</p>
+			</article>
+		</section>
+
+		<section id="demo" class="medium">
+			<article>
+				<header>
+					<h1>Try Me!</h1>
+				</header>
+				<p>Upload a file below to see it getting uploaded and embedded.</p>
+
+				<div class="upload">
+					<a ng-show="!uploading" class="dropzone" dropzone="dropzoneConfig"></a>
+					<div ng-show="uploading" class="loading">Loading&hellip;</div>
+					<h2 ng-show="uploaded">Upload completed. Please see your video below.</h2>
+				</div>
+
+				<div class="upload-preview"></div>
+
+			</article>
+		</section>
+
+		<section id="gallery" class="light">
+			<article>
+				<header>
+					<h1>Embedded Preview</h1>
+				</header>
+				<p>Uploaded videos will be automatically displayed below, once they're successfully uploaded.</p>
+
+				<ul class="gallery">
+					<li ng-repeat="video in uploads | toArray | orderBy:'date':true">
+						<div class="item wistia_embed wistia_async_{{ video.id }} popover=true popoverAnimateThumbnail=true">&nbsp;</div>
+						<h2>{{ video.name }}</h2>
+					</li>
+					<li ng-show="!hasUploads()">No videos have been uploaded. Please add some above.</li>
+				</ul>
+			</article>
+		</section>
+	</main>
+
+	<footer id="contact">
+		<div class="wrap">
+			<section>
+				<h2>Let's Be Social</h2>
+				<p role="contentinfo" class="social">
+					<!--
+					<a href="http://instagram.com/LucasUnplugged/" class="inset"><span class="icon-instagram"></span></a>
+					-->
+					<a href="https://github.com/LucasUnplugged" class="inset"><span class="icon-github"></span></a>
+					<a href="http://ca.linkedin.com/in/castrolucas" class="inset"><span class="icon-linkedin"></span></a>
+					<a href="http://www.slideshare.net/LucasUnplugged/" class="inset"><span class="icon-slideshare"></span></a>
+					<a href="http://dribbble.com/LucasUnplugged" class="inset"><span class="icon-dribbble"></span></a>
+					<a href="https://twitter.com/LucasUnplugged" class="inset"><span class="icon-twitter"></span></a>
+				</p>
+			</section>
+			<section>
+				<h2>I Don't Bite (Often)</h2>
+				<p>Thanks for checking out my work. Check out my <a href="http://lucasunplugged.com">personal site</a> to learn more about me, or connect with me use one of the links in this footer.</p>
+			</section>
+			<section>
+				<h2>Get in touch</h2>
+				<p>Send me a note at <a href="mailto:contact@lucasunplugged.com">contact@lucasunplugged.com</a>, or reach me on my social media channels.</p>
+			</section>
+		</div>
+
+		<section class="copy">&copy; 2013 <a href="http://lucasunplugged.com/">Lucas Castro</a>.</section>
+	</footer>
+</section>

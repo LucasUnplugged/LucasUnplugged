@@ -1,0 +1,92 @@
+///////////////////////
+// MIXINS
+///////////////////////
+
+@mixin vertical-center-abs {
+	position: absolute;
+	top: 50%;
+
+	@media (min-width: 0) and (max-width: 735px) {
+		position: relative;
+		top: 0;
+		left: 0;
+	}
+	@media (min-width: 736px) {
+		-webkit-transform: translateY(-50%);
+		    -ms-transform: translateY(-50%);
+		        transform: translateY(-50%);
+	}
+}
+
+@mixin border-radius($radii: $app-radius) {
+	@include prefixer(border-radius, $radii, (webkit moz spec));
+}
+
+@mixin inline-list() {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: 0;
+	font-size: 0;
+
+	li {
+		display: inline-block;
+		padding: 0;
+		margin: 0;
+		font-size: $app-font-size;
+		line-height: $app-font-size + 1;
+		list-style: none;
+	}
+}
+
+$app-color-main: #bb3a6a; // Fuchsia
+$app-color-main-medium: #8e284e;
+$app-color-main-dark: #752141;
+
+@mixin btn ($border: $app-color-main-dark, $highlight: lighten($app-color-main, 10%), $from: $app-color-main, $to: $app-color-main-medium ) {
+	display: inline-block;
+	position: relative;
+	min-width: 150px;
+	height: 50px;
+	line-height: 20px;
+	// font-size: 20px;
+	padding: ($app-box-pad - 20);
+	margin: $app-pad*0.67 $app-pad*0.67 $app-pad*0.67 0;
+	text-align: center;
+	vertical-align: middle;
+	color: $app-color-white;
+	-webkit-font-smoothing: subpixel-antialiased;
+	cursor: pointer;
+	text-shadow: 0 1px 1px $border;
+	border: 1px solid $border;
+	border-bottom-width: 3px;
+	box-shadow: 0 1px 0 0 $highlight inset;
+	box-sizing: border-box;
+	@include border-radius();
+	@include linear-gradient ($from, $to);
+	@include transition ( all 0s );
+
+	&:hover,
+	&:focus {
+		color: $app-color-white;
+		text-shadow: 0 1px 1px $app-color-alt-dark;
+		border-color: $app-color-alt-dark;
+		box-shadow: 0 1px 0 0 $app-color-alt-light inset;
+		@include linear-gradient ($app-color-alt, darken($app-color-alt, 6%));
+	}
+
+	.dark & {
+		text-shadow: 0 1px 1px $app-color-alt-dark;
+		border-color: $app-color-alt-dark;
+		box-shadow: 0 1px 0 0 $app-color-alt-light inset;
+		@include linear-gradient ($app-color-alt, darken($app-color-alt, 6%));
+
+		&:hover,
+		&:focus {
+			text-shadow: 0 1px 1px $border;
+			border-color: $border;
+			box-shadow: 0 1px 0 0 $highlight inset;
+			@include linear-gradient ($from, $to);
+		}
+	}
+}

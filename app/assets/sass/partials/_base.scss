@@ -1,0 +1,86 @@
+// GENERAL
+// * {
+// 	@include transition(all 0.5s);
+// }
+
+html {
+	-webkit-font-smoothing: antialiased;
+	overflow-y: scroll;
+	/* killing 300ms touch delay in IE */
+	-ms-touch-action: manipulation;
+	    touch-action: manipulation;
+	font-size: 85%;
+
+	@include media($app-mobile) {
+		font-size: 92.5%;
+	}
+	@include media($app-tablet) {
+		font-size: 100%;
+	}
+}
+
+body {
+	width: 100%;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	font-size: $app-font-size;
+	line-height: $app-line-height;
+	font-family: $app-font-main;
+	color: $app-color-text;
+	overflow: hidden;
+
+	&.is-loading {
+		background: $app-color-white url('../img/portfolio/loading.gif') center center no-repeat;
+
+		> header,
+		> div,
+		> section,
+		> article {
+			display: none;
+		}
+	}
+}
+
+code,
+pre {
+	font-family: $app-font-code;
+}
+
+img,
+object,
+video {
+	max-width: 100%;
+	border: none;
+	.ie7 & {
+		-ms-interpolation-mode: bicubic;
+	}
+}
+
+button,
+input[type='submit'],
+.btn {
+	@include btn;
+}
+
+.iconBtn {
+	line-height: .85;
+	font-size: $app-h1;
+	font-weight: 700;
+}
+
+:invalid {
+	border: none;
+}
+
+.group:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+div.collapse {
+	display: none;
+}
+div.expand {
+	display: block;
+}
