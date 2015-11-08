@@ -3,4 +3,4 @@ LucasUnplugged
 
 Lucas Castro's personal website.
 
-<strong>Coded in</strong> HTML5, CSS3 + SCSS, Node, Javascript + jQuery.<br />
+<strong>Coded in</strong> Angular, Node, SASS, and HTML5. <strong>Built using</strong> Grunt.<br />
