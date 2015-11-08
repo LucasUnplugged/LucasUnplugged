@@ -4,6 +4,7 @@
 	angular.module( 'app.service.api' )
 	.constant( 'apiUrl', { upload: 'https://upload.wistia.com', list: 'https://api.wistia.com/v1/medias.json' } )
 	.constant( 'apiKey', { api_password: 'e22a5ec4b06f2aceb845a7081347ce9f9b2991a7cab8870e965b3db664be5455' } )
+	.constant( 'apiTimeout', 5000 )
 	.factory( 'apiService', apiService )
 	.factory( 'uploadItem', uploadItem )
 	.factory( 'getMedia', getMedia );
@@ -21,8 +22,8 @@
 	}
 
 	// Service to handle uploading
-	uploadItem.$inject = [ 'apiService', 'apiKey' ];
-	function uploadItem( apiService, apiKey ) {
+	uploadItem.$inject = [ 'apiService', 'apiKey', 'apiTimeout' ];
+	function uploadItem( apiService, apiKey, apiTimeout ) {
 
 		// Request and resolve a new upload
 		function upload( url, requestArguments, file, scope ) {
@@ -91,7 +92,7 @@
 						scope.uploaded = true;
 						setTimeout( function() {
 							scope.uploaded = false;
-						}, 5000 );
+						}, apiTimeout );
 
 					// Could not upload
 					} else {

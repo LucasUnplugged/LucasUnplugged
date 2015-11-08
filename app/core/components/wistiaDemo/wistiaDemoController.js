@@ -4,8 +4,8 @@
 	angular.module( 'app.wistiaDemo' )
 	.controller( 'wistiaDemoController', wistiaDemoController );
 
-	wistiaDemoController.$inject = [ '$scope', '$route', 'uiAnimate', 'uploadItem', 'getMedia', 'apiUrl' ];
-	function wistiaDemoController( $scope, $route, uiAnimate, uploadItem, getMedia, apiUrl ) {
+	wistiaDemoController.$inject = [ '$scope', '$route', 'uiAnimate', 'uploadItem', 'getMedia', 'apiUrl', 'apiTimeout' ];
+	function wistiaDemoController( $scope, $route, uiAnimate, uploadItem, getMedia, apiUrl, apiTimeout ) {
 		var queueTimer = {};
 
 		// Setup generic UI animations
@@ -70,7 +70,7 @@
 				clearTimeout( queueTimer );
 				queueTimer = setTimeout( function() {
 					processQueue( $scope );
-				}, 5000 );
+				}, apiTimeout );
 			}
 		}, true );
 
@@ -93,7 +93,7 @@
 				clearTimeout( queueTimer );
 				queueTimer = setTimeout( function() {
 					processQueue( scope );
-				}, 5000 );
+				}, apiTimeout );
 			}
 		}
 	}
