@@ -51,7 +51,7 @@
 			}
 
 			var dropzone = angular.element( document.querySelector( dzSelector ) ),
-			    EventUtil = {
+			    eventUtil = {
 					addHandler: function( element, type, handler ) {
 						if ( element.addEventListener ) {
 							element.addEventListener( type, handler, false );
@@ -74,28 +74,35 @@
 					}
 				};
 
+			function toggleZone( event, method ) {
+				var target = eventUtil.getCurrentTarget( event );
+
+				if ( method === 'add' && !target.classList.contains( 'active' ) ) {
+					target.classList.add( 'active' );
+				} else if ( method === 'remove' && target.classList.contains( 'active' ) ) {
+					target.classList.remove( 'active' );
+				}
+			}
+
 			// Setup class-based toggling of dropzone activity
 			if ( dropzone[ 0 ] ) {
 				dropzone = dropzone[ 0 ];
 
-				EventUtil.addHandler( dropzone, 'dragenter', function( event ) {
-					var target = EventUtil.getCurrentTarget( event );
-
-					if ( !target.classList.contains( 'active' ) ) {
-						target.classList.add( 'active' );
-					}
-
-					return false;
+				eventUtil.addHandler( dropzone, 'dragover', function( event ) {
+					toggleZone( event, 'add' );
+				} );
+				eventUtil.addHandler( dropzone, 'dragenter', function( event ) {
+					toggleZone( event, 'add' );
 				} );
 
-				EventUtil.addHandler( dropzone, 'dragleave', function( event ) {
-					var target = EventUtil.getCurrentTarget( event );
-
-					if ( target.classList.contains( 'active' ) ) {
-						target.classList.remove( 'active' );
-					}
-
-					return false;
+				eventUtil.addHandler( dropzone, 'dragleave', function( event ) {
+					toggleZone( event, 'remove' );
+				} );
+				eventUtil.addHandler( dropzone, 'dragend', function( event ) {
+					toggleZone( event, 'remove' );
+				} );
+				eventUtil.addHandler( dropzone, 'drop', function( event ) {
+					toggleZone( event, 'remove' );
 				} );
 			}
 
