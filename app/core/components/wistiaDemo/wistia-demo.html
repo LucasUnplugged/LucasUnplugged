@@ -33,11 +33,18 @@
 				<div class="upload">
 					<a ng-show="!uploading" class="dropzone" dropzone="dropzoneConfig"></a>
 					<div ng-show="uploading" class="loading">Loading&hellip;</div>
-					<h2 ng-show="uploaded">Upload completed. Please see your video below.</h2>
 				</div>
 
 				<div class="upload-preview"></div>
 
+				<!-- API-related Notifications -->
+				<section ng-show="uploaded || failed.length > 0" class="notifications">
+					<em ng-show="uploaded" ng-bind="uploadMessage"></em>
+					<em ng-show="failed.length > 0" ng-bind="failMessage"></em>
+					<ul ng-show="failed.length > 0">
+						<li ng-repeat="fail in failed track by $index">{{ fail }}</li>
+					</ul>
+				</section>
 			</article>
 		</section>
 
@@ -49,8 +56,17 @@
 				<p>Uploaded videos will be automatically displayed below, once they're successfully uploaded.</p>
 
 				<ul class="gallery">
+					<!-- Queued Up Videos -->
+					<li ng-repeat="item in videoQueue">
+						<div class="item center">
+							<div class="loading">&nbsp;</div>
+						</div>
+						<h2>Processing...</h2>
+					</li>
+
+					<!-- Processed Videos -->
 					<li ng-repeat="video in uploads | toArray | orderBy:'date':true">
-						<div class="item wistia_embed wistia_async_{{ video.id }} popover=true popoverAnimateThumbnail=true">&nbsp;</div>
+						<div id="{{ video.id }}" class="item wistia_embed wistia_async_{{ video.id }} popover=true popoverAnimateThumbnail=true">&nbsp;</div>
 						<h2>{{ video.name }}</h2>
 					</li>
 					<li ng-show="!hasUploads()">No videos have been uploaded. Please add some above.</li>

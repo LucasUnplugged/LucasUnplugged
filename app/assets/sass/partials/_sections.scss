@@ -263,6 +263,10 @@ main {
 	header {
 		text-align: center;
 	}
+
+	section.notifications {
+		margin-top: $app-box-pad*2;
+	}
 }
 
 #blurb {

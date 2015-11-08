@@ -1,11 +1,11 @@
-(  function() {
+( function() {
 	'use strict';
 
 	angular.module( 'app.utils' )
 	.directive( 'dropzone', dropzone );
 
 	function dropzone() {
-		return function ( scope, element, attrs ) {
+		return function( scope, element, attrs ) {
 			var config, dropzone;
 
 			config = scope[ attrs.dropzone ];
@@ -14,7 +14,7 @@
 			dropzone = new Dropzone( element[ 0 ], config.options );
 
 			// bind the given event handlers
-			angular.forEach( config.eventHandlers, function ( handler, event ) {
+			angular.forEach( config.eventHandlers, function( handler, event ) {
 				dropzone.on( event, handler );
 			} );
 

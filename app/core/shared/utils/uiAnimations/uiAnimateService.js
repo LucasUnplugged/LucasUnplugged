@@ -71,7 +71,7 @@
 						} else {
 							return null;
 						}
-					},
+					}
 				};
 
 			// Setup class-based toggling of dropzone activity
@@ -86,7 +86,7 @@
 					}
 
 					return false;
-				});
+				} );
 
 				EventUtil.addHandler( dropzone, 'dragleave', function( event ) {
 					var target = EventUtil.getCurrentTarget( event );
@@ -96,7 +96,7 @@
 					}
 
 					return false;
-				});
+				} );
 			}
 
 		}
