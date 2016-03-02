@@ -9,21 +9,48 @@
     </file>
     <file name="app/core/components/wistiaDemo/wistiaDemoController.js">
         <error line="8" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="78" column="3" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="84" column="14" severity="error" message="All identifiers must be camelCase or UPPER_CASE" source="jscs" />
     </file>
     <file name="app/core/models/sampleData.js">
     </file>
-    <file name="app/core/shared/sampleService/sampleDataController.js">
+    <file name="app/core/shared/api/_apiModule.js">
     </file>
-    <file name="app/core/shared/sampleService/sampleDataService.js">
+    <file name="app/core/shared/api/apiServices.js">
+        <error line="6" column="25" severity="error" message="All identifiers must be camelCase or UPPER_CASE" source="jscs" />
+        <error line="14" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="15" column="3" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="26" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="29" column="3" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="60" column="35" severity="error" message="All identifiers must be camelCase or UPPER_CASE" source="jscs" />
+        <error line="86" column="41" severity="error" message="All identifiers must be camelCase or UPPER_CASE" source="jscs" />
+        <error line="117" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="120" column="3" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="129" column="28" severity="error" message="All identifiers must be camelCase or UPPER_CASE" source="jscs" />
+        <error line="162" column="3" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
     </file>
     <file name="app/core/shared/utils/_utilsModule.js">
     </file>
-    <file name="app/core/shared/utils/uiAnimateService.js">
+    <file name="app/core/shared/utils/appHeader.js">
+        <error line="11" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="16" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+    </file>
+    <file name="app/core/shared/utils/appLib.js">
+        <error line="7" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="8" column="3" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+    </file>
+    <file name="app/core/shared/utils/uiAnimations/uiAnimateService.js">
+        <error line="7" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="77" column="4" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+    </file>
+    <file name="app/core/shared/utils/upload/upload.js">
         <error line="7" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
     </file>
     <file name="app/app.js">
-        <error line="13" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
-        <error line="28" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="15" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="45" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="57" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
+        <error line="62" column="2" severity="error" message="Expect valid jsdoc-block definition" source="jscs" />
     </file>
     <file name="app/routes.js">
     </file>

@@ -139,7 +139,7 @@
 						scope.failed.push( obj.name );
 
 						// Remove from processing queue
-						scope.videoQueue.splice( scope.videoQueue.indexOf( obj.id ) , 1 );
+						scope.videoQueue.splice( scope.videoQueue.indexOf( obj.id ), 1 );
 
 						break;
 
@@ -149,7 +149,7 @@
 						list[ data[ index ].id ] = obj;
 
 						// Remove from processing queue
-						scope.videoQueue.splice( scope.videoQueue.indexOf( obj.id ) , 1 );
+						scope.videoQueue.splice( scope.videoQueue.indexOf( obj.id ), 1 );
 
 						break;
 				}
