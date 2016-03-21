@@ -38,7 +38,7 @@
 
 		// Objects to manage uploads and video processing queue
 		wistiaVM.uploading = false;
-		wistiaVM.uploaded = false;
+		wistiaVM.requestCompleted = false;
 		wistiaVM.uploadMessage = '';
 		wistiaVM.failMessage = '';
 		wistiaVM.failedUploads = [];
@@ -52,6 +52,7 @@
 		} );
 
 		$rootScope.$on( 'videoUploadSuccessful', function( event, args ) {
+			console.warn( 'videoUploadSuccessful' );
 			wistiaVM.uploadMessage = args.uploadMessage;
 
 			// If processing failed, inform the user
@@ -68,18 +69,19 @@
 
 			// Update status of upload process
 			wistiaVM.uploading = args.uploading;
-			wistiaVM.uploaded = args.uploaded;
+			wistiaVM.requestCompleted = args.requestCompleted;
 
 			// Display uploaded message for a brief period
-			$timeout( function() {
-				wistiaVM.uploaded = false;
-			}, 8000 );
+			delayedHideNotification();
 		} );
 
 		// Handle upload/processing errors
 		$rootScope.$on( 'couldNotProcessVideo', function( event, args ) {
 			wistiaVM.failMessage = args.failMessage;
 			wistiaVM.failedUploads = args.failed;
+
+			// Display uploaded message for a brief period
+			delayedHideNotification();
 		} );
 
 		// Remove a video from the processing queue
@@ -96,19 +98,38 @@
 				'url': apiUrl.upload,
 				maxFilesize: 120,
 				paramName: 'file',
-				acceptedFiles: 'video/*',
+				acceptedFiles: 'vide/*',
 				dictDefaultMessage: 'Drag and drop files here, or click to upload.',
 				autoProcessQueue: false
 			},
 			'eventHandlers': {
-				'addedfile': function( file ) {
-					console.log( 'Adding file to upload queue...' );
-					$scope.$apply( function() {
-						wistiaVM.uploading = true;
-					} );
+				addedfile: function( file ) {
+					if ( file.type.indexOf( 'video' ) > -1 ) {
+						console.log( 'Adding file to upload queue...' );
+						$scope.$apply( function() {
+							wistiaVM.uploading = true;
 
-					// Make an upload call to the API
-					uploadItem.upload( apiUrl.upload, {}, file );
+							// Make an upload call to the API
+							uploadItem.upload( apiUrl.upload, {}, file );
+						} );
+					}
+				},
+				error: function( file, message ) {
+					if( message === "You can't upload files of this type." ) {
+						$scope.$apply( function() {
+							console.warn( 'Invalid file type. Type "' + file.type + '" is not a video format.' );
+							wistiaVM.failMessage = 'Invalid file type for file "' + file.name + '." Only video files are accepted!';
+							wistiaVM.uploading = false;
+							wistiaVM.requestCompleted = true;
+						} );
+					}
+				},
+				complete: function() {
+					$scope.$apply( function() {
+
+						// Display uploaded message for a brief period
+						delayedHideNotification();
+					} );
 				}
 			}
 		};
@@ -165,6 +186,15 @@
 					}
 				}
 			}
+		}
+
+		// Display uploaded message for a brief period
+		function delayedHideNotification() {
+			$timeout( function() {
+				wistiaVM.requestCompleted = false;
+				wistiaVM.failMessage = '';
+				wistiaVM.failedUploads = [];
+			}, 7000 );
 		}
 	}
 } )();

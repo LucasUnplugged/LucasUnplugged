@@ -299,13 +299,13 @@ main {
 		}
 
 		&.ng-hide-add {
-			-webkit-animation: 0.5s fadeOutDown ease;
-					animation: 0.5s fadeOutDown ease;
+			-webkit-animation: .5s fadeOutDown ease;
+			        animation: .5s fadeOutDown ease;
 		}
 
 		&.ng-hide-remove {
-			-webkit-animation: 0.5s fadeInUp ease;
-					animation: 0.5s fadeInUp ease;
+			-webkit-animation: .5s fadeInUp ease;
+			        animation: .5s fadeInUp ease;
 		}
 	}
 }

@@ -2,8 +2,12 @@
 	<a class="dropzone"
 		ng-show="!showLoading"></a>
 
-	<div class="loading"
-		ng-show="showLoading">Loading&hellip;</div>
+	<div class="loading-wrapper"
+		ng-show="showLoading">
+
+		<div class="loading">Loading&hellip;</div>
+		<p>Uploading...</p>
+	</div>
 </div>
 
 <div class="upload-preview"></div>

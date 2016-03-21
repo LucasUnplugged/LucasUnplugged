@@ -65,7 +65,7 @@
 						uploadMessage: [],
 						failMessage: [],
 						uploading: [],
-						uploaded: []
+						requestCompleted: []
 					};
 
 					// Uploaded successfully
@@ -94,7 +94,7 @@
 						}
 
 						eventArgs.uploading = false;
-						eventArgs.uploaded = true;
+						eventArgs.requestCompleted = true;
 
 						$rootScope.$emit( 'videoUploadSuccessful', eventArgs );
 

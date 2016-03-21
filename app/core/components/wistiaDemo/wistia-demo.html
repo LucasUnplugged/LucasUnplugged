@@ -35,15 +35,15 @@
 
 			<!-- API-related Notifications -->
 			<section class="notifications-wrapper"
-				ng-show="wistiaVM.uploaded || wistiaVM.failedUploads.length > 0">
+				ng-show="wistiaVM.requestCompleted">
 
 				<div class="notifications-popup">
 					<em
-						ng-show="wistiaVM.uploaded"
+						ng-show="wistiaVM.requestCompleted"
 						ng-bind="wistiaVM.uploadMessage"></em>
 
 					<em
-						ng-show="wistiaVM.failedUploads.length > 0"
+						ng-show="wistiaVM.failMessage"
 						ng-bind="wistiaVM.failMessage"></em>
 
 					<ul ng-show="wistiaVM.failedUploads.length > 0">
