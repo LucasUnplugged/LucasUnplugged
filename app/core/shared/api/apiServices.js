@@ -2,12 +2,9 @@
 	'use strict';
 
 	angular.module( 'app.service.api' )
-	.constant( 'apiUrl', { upload: 'https://upload.wistia.com', list: 'https://api.wistia.com/v1/medias.json' } )
-	.constant( 'apiKey', { api_password: 'e22a5ec4b06f2aceb845a7081347ce9f9b2991a7cab8870e965b3db664be5455' } )
-	.constant( 'apiTimeout', 5000 )
-	.factory( 'apiService', apiService )
-	.factory( 'uploadItem', uploadItem )
-	.factory( 'getMedia', getMedia );
+	.service( 'apiService', apiService )
+	.service( 'uploadItem', uploadItem )
+	.service( 'getMedia', getMedia );
 
 	// Service to make API $resource requests
 	apiService.$inject = [ '$resource', '$http' ];
@@ -22,11 +19,21 @@
 	}
 
 	// Service to handle uploading
-	uploadItem.$inject = [ 'apiService', 'apiKey', 'apiTimeout' ];
-	function uploadItem( apiService, apiKey, apiTimeout ) {
+	uploadItem.$inject = [
+		'$rootScope',
+		'apiService',
+		'ConfigDataSvc'
+	];
+	function uploadItem(
+		$rootScope,
+		apiService,
+		ConfigDataSvc
+	) {
+		var apiKey = ConfigDataSvc.initialized() ? ConfigDataSvc.apiKey : null,
+		    apiTimeout = ConfigDataSvc.initialized() ? ConfigDataSvc.apiTimeout : 5000;
 
 		// Request and resolve a new upload
-		function upload( url, requestArguments, file, scope ) {
+		function upload( url, requestArguments, file ) {
 			var uploader = {},
 				action = {
 					method: 'POST',
@@ -48,51 +55,48 @@
 			angular.merge( requestArguments, apiKey );
 
 			// Make request to upload item
-			uploader.request = uploader.api.upload( requestArguments, data )
-			.$promise.then(
+			uploader.api.upload( requestArguments, data ).$promise.then(
 
 				// SUCCESS
 				function( response ) {
-
-					// console.log( response );
+					var eventArgs = {
+						videoQueue: [],
+						failed: [],
+						uploadMessage: [],
+						failMessage: [],
+						uploading: [],
+						uploaded: []
+					};
 
 					// Uploaded successfully
 					if ( response.id && response.hashed_id ) {
 						console.log( 'Successfully uploaded video file' );
 
-						if ( !scope.videoQueue ) {
-							scope.videoQueue = [];
-						}
-						if ( !scope.failed ) {
-							scope.failed = [];
-						}
-
-						scope.uploadMessage = 'Upload completed. Please see your video below.';
+						eventArgs.uploadMessage = 'Upload completed. Please see your video below.';
 
 						// Resolve the response based on its status
 						switch ( response.status ) {
 
 							// If processing failed, inform the user
 							case 'failed':
-								scope.failMessage = 'Could not process the following file(s). Please ensure your files meet size and format restrictions, and try again.';
-								scope.failed.push( obj.name );
+								eventArgs.failMessage = 'Could not process the following file(s). Please ensure your files meet size and format restrictions, and try again.';
+								eventArgs.failed.push( obj.name );
 
 								break;
 
 							// If the file is being processed, add it to the queue
 							case 'queued':
 							case 'processing':
-								scope.uploadMessage = 'Your video is being processed and will be momentarily embedded below.';
-								scope.videoQueue.push( response.hashed_id );
+								eventArgs.uploadMessage = 'Your video is being processed and will be embedded shortly.';
+								eventArgs.videoQueue.push( response.hashed_id );
 
 								break;
 						}
 
-						scope.uploading = false;
-						scope.uploaded = true;
-						setTimeout( function() {
-							scope.uploaded = false;
-						}, apiTimeout );
+						eventArgs.uploading = false;
+						eventArgs.uploaded = true;
+
+						$rootScope.$emit( 'videoUploadSuccessful', eventArgs );
 
 					// Could not upload
 					} else {
@@ -113,14 +117,27 @@
 	}
 
 	// Service to get media
-	getMedia.$inject = [ 'apiService', 'apiKey' ];
-	function getMedia( apiService, apiKey ) {
+	getMedia.$inject = [
+		'$rootScope',
+		'apiService',
+		'ConfigDataSvc'
+	];
+	function getMedia(
+		$rootScope,
+		apiService,
+		ConfigDataSvc
+	) {
+		var apiKey = ConfigDataSvc.initialized() ? ConfigDataSvc.apiKey : null;
 
 		// Convert JSON response to a list of objects
-		function convertJsonToObj( data, scope ) {
+		function convertJsonToObj( data ) {
 			var index = 0,
 			    obj = {},
-			    list = {};
+			    list = {},
+			    eventArgs = {
+					failMessage: '',
+					failed: []
+				};
 
 			data = angular.fromJson( data );
 
@@ -135,11 +152,13 @@
 				// Remove videos that have been processed from the queue
 				switch ( obj.status ) {
 					case 'failed':
-						scope.failMessage = 'Could not process the following file(s). Please ensure your files meet size and format restrictions, and try again.';
-						scope.failed.push( obj.name );
+						eventArgs.failMessage = 'Could not process the following file(s). Please ensure your files meet size and format restrictions, and try again.';
+						eventArgs.failed.push( obj.name );
+
+						$rootScope.$broadcast( 'couldNotProcessVideo', eventArgs );
 
 						// Remove from processing queue
-						scope.videoQueue.splice( scope.videoQueue.indexOf( obj.id ), 1 );
+						$rootScope.$broadcast( 'removeVideoFromProcessQueue', { id: obj.id } );
 
 						break;
 
@@ -149,7 +168,7 @@
 						list[ data[ index ].id ] = obj;
 
 						// Remove from processing queue
-						scope.videoQueue.splice( scope.videoQueue.indexOf( obj.id ), 1 );
+						$rootScope.$broadcast( 'removeVideoFromProcessQueue', { id: obj.id } );
 
 						break;
 				}
@@ -159,12 +178,12 @@
 		}
 
 		// Request a list of items
-		function list( url, requestArguments, scope ) {
+		function list( url, requestArguments ) {
 			var getter = {},
 				action = {
 					method: 'GET',
 					transformResponse: function( data ) {
-						return convertJsonToObj( data, scope );
+						return convertJsonToObj( data );
 					}
 				};
 
@@ -175,27 +194,23 @@
 			angular.merge( requestArguments, apiKey );
 
 			// Make request to list media
-			getter.request = getter.api.get( requestArguments )
-			.$promise.then(
+			getter.request = getter.api.get( requestArguments ).$promise.then(
 
 				// SUCCESS
 				function( response ) {
-
-					// console.log( response );
+					var eventArgs = {
+						uploads: {}
+					};
 
 					// Received list successfully (account for $promise and $resolved objects)
 					if ( response && Object.keys( response ).length > 2 ) {
 						console.log( 'Successfully received the list of media' );
 
-						// Ensure that the necessary scope variables are defined
-						if ( !scope.uploads ) {
-							scope.uploads = {};
-						}
+						eventArgs.uploads = response;
+						delete eventArgs.uploads.$promise;
+						delete eventArgs.uploads.$resolved;
 
-						// Make sure all videos are in the scope
-						angular.extend( scope.uploads, response );
-						delete scope.uploads.$promise;
-						delete scope.uploads.$resolved;
+						$rootScope.$emit( 'videoListReturned', eventArgs );
 
 					// Could not receive list
 					} else {

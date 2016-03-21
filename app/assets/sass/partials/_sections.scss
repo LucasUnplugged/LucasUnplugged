@@ -31,10 +31,12 @@ footer {
 		color: $app-color-text-light;
 		background-color: $app-color-text;
 	}
+
 	&.medium,
 	.medium {
 		background-color: $app-color-box;
 	}
+
 	&.light,
 	.light {
 		background-color: $app-color-white;
@@ -86,11 +88,13 @@ section.break {
 		&::before {
 			margin-left: 0;
 		}
+
 		&::after {
 			margin-right: 0;
 		}
 	}
 }
+
 
 // HEADER
 #bg {
@@ -168,6 +172,7 @@ header[role='banner'] {
 		@extend .wrap;
 	}
 
+
 	// NAVIGATION
 	nav {
 		position: relative;
@@ -239,7 +244,7 @@ header[role='banner'] {
 }
 
 
-// MAIN
+// MAIN SECTIONS
 main {
 	> article > div,
 	> article,
@@ -264,8 +269,44 @@ main {
 		text-align: center;
 	}
 
-	section.notifications {
-		margin-top: $app-box-pad*2;
+	// Animated notification popup
+	section.notifications-wrapper {
+		.notifications {
+			width: 90vw;
+			max-width: 360px;
+		}
+	}
+	section.notifications-wrapper {
+		position: fixed;
+		bottom: 0;
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		z-index: 1000;
+
+		&,
+		.notifications-popup {
+			min-height: 100px;
+		}
+
+		.notifications-popup {
+			width: 80vw;
+			padding: $app-box-pad;
+			background: $app-color-main;
+			color: $app-color-white;
+		}
+
+		&.ng-hide-add {
+			-webkit-animation: 0.5s fadeOutDown ease;
+					animation: 0.5s fadeOutDown ease;
+		}
+
+		&.ng-hide-remove {
+			-webkit-animation: 0.5s fadeInUp ease;
+					animation: 0.5s fadeInUp ease;
+		}
 	}
 }
 
@@ -302,6 +343,7 @@ main {
 		text-align: left;
 	}
 }
+
 
 #results {
 	text-align: center;
@@ -342,20 +384,35 @@ main {
 			&:nth-child(3n-2) {
 				color: $app-color-main;
 			}
+
 			&:nth-child(3n-1) {
 				color: $app-color-alt-dark;
 
-				&:before {
+				:before {
 					color: $app-color-alt;
 				}
 			}
+
 			&:nth-child(3n) {
 				color: $app-color-text;
+			}
+
+			.icon-star:before {
+				letter-spacing: 1px;
+			}
+
+			.icon-scope:before {
+				letter-spacing: 0;
+			}
+
+			.icon-product:before {
+				letter-spacing: 1px;
 			}
 
 			@include media($app-mobile) {
 				width: 48%;
 			}
+
 			@include media($app-tablet) {
 				width: 32%;
 				margin: 0;
@@ -377,6 +434,7 @@ main {
 				&:nth-child(3n) {
 					color: $app-color-main;
 				}
+
 				&:nth-child(3n-2) {
 					color: $app-color-alt-dark;
 
@@ -385,6 +443,7 @@ main {
 						color: $app-color-alt;
 					}
 				}
+
 				&:nth-child(3n-1) {
 					color: $app-color-text;
 				}
@@ -401,7 +460,6 @@ main {
 
 				@include media($app-mobile) {
 					width: 100%;
-					// max-width: 768px;
 					line-height: $app-line-height * .65;
 					font-size: $app-feature-h1 * .7;
 					padding-left: 180px;
@@ -416,7 +474,6 @@ main {
 				@include media($app-tablet) {
 					width: 48%;
 					margin: 3rem auto 0;
-					// line-height: $app-line-height * 0.65;
 					font-size: $app-feature-h1 * .75;
 
 					&:nth-child(1),
@@ -441,15 +498,6 @@ main {
 				}
 
 				@include media($app-tablet) {
-					// width: 32%;
-					// margin-bottom: 3rem;
-
-					// &:last-child {
-					// 	margin-bottom: 0;
-					// }
-				}
-
-				@include media($app-tablet) {
 					width: 24%;
 				}
 			}
@@ -457,7 +505,7 @@ main {
 	}
 
 	[class^='icon-']:before {
-		display: block;
+		display: inline;
 		margin: 0 auto 1.5rem;
 		font-size: 5.5rem;
 
@@ -466,13 +514,13 @@ main {
 		}
 	}
 
-	[class^='icon--']:before {
+	.icon-grouping {
+		display: block;
 		margin-bottom: $app-box-pad/2;
-		line-height: $app-line-height/1.417;
-		font-size: 175%;
 
-		@include media($app-tablet) {
-			font-size: 200%;
+		[class^='icon-']:before {
+			line-height: $app-line-height/1.5;
+			font-size: 175%;
 		}
 	}
 }
@@ -509,6 +557,7 @@ main {
 			width: 45%;
 			margin-bottom: $app-box-pad;
 		}
+
 		@include media ($app-tablet) {
 			width: 30%;
 			margin-bottom: 0;
@@ -518,49 +567,87 @@ main {
 			margin-bottom: 0;
 		}
 
+		.skill-3 {
+			&:before,
+			&:after {
+				display: inline-block;
+				width: 14px;
+				height: 14px;
+				margin: 3px 2px;
+				padding: 0;
+				line-height: 100px;
+				vertical-align: text-bottom;
+				color: $app-color-main;
+				background: $app-color-main;
+				box-shadow: 0 2px 0 0 $app-color-main-dark inset;
+				border-bottom: 1px solid $app-color-white;
+				overflow: hidden;
+				@include border-radius(20px);
+			}
+
+			&:before {
+				content: '\2022 \2022 \2022';
+			}
+
+			&:after {
+				content: '\2022 \2022';
+				background: $app-color-box-dark;
+				box-shadow: 0 2px 0 0 $app-color-text-medium inset;
+			}
+		}
+
 		h3 {
+			display: inline-block;
+			float: left;
+			width: 52%;
+			padding: 0 $app-box-pad/2 0 0;
 			margin: 0 0 10px;
+			line-height: 21px;
+			color: $app-color-black;
+			font-size: $app-feature-p * .75;
+			font-weight: 500;
+			text-align: right;
+
+			@include media($app-laptop) {
+				line-height: 24px;
+			}
+		}
+
+		.skill-bubbles {
+			display: inline-block;
+			float: left;
+			width: 48%;
+			height: 21px;
+			padding: 3px 0;
+			line-height: 20px;
 			text-align: left;
+			letter-spacing: -1px;
 
-			span {
-				&:first-child {
-					display: inline-block;
-					width: 52%;
-					padding: 0 $app-box-pad/2 0 0;
-					color: $app-color-black;
-					font-size: $app-feature-p * .75;
-					font-weight: 500;
-					text-align: right;
-				}
+			@include media($app-laptop) {
+				line-height: 23px;
+			}
 
-				&.on,
-				&.off {
-					display: inline-block;
-					width: 14px;
-					height: 14px;
-					margin: 3px 2px;
-					padding: 0;
-					line-height: 100px;
-					vertical-align: text-bottom;
-					color: $app-color-main;
-					background: $app-color-main;
-					box-shadow: 0 2px 0 0 $app-color-main-dark inset;
-					border-bottom: 1px solid $app-color-white;
-					overflow: hidden;
-					@include border-radius(20px);
-				}
+			.on,
+			.off {
+				@include border-radius(20px);
+				display: inline-block;
+				width: 14px;
+				height: 14px;
+				color: $app-color-main;
+				background: $app-color-main;
+				box-shadow: 0 2px 0 0 $app-color-main-dark inset;
+				border-bottom: 1px solid $app-color-white;
+			}
 
-				&.off {
-					background: $app-color-box-dark;
-					box-shadow: 0 2px 0 0 $app-color-text-medium inset;
-				}
+			.off {
+				background: $app-color-box-dark;
+				box-shadow: 0 2px 0 0 $app-color-text-medium inset;
 			}
 		}
 	}
 
 
-
-	#skillsGrid {
+	#skills-grid {
 		@extend .medium;
 		display: flex;
 		padding: $app-box-pad 0;
@@ -722,7 +809,7 @@ main {
 			}
 		}
 	}
-} // #cv
+}
 
 
 footer {
@@ -744,9 +831,11 @@ footer {
 		@include media($app-mobile) {
 			@include span-columns(2);
 		}
+
 		@include media ($app-tablet) {
 			@include span-columns (6);
 		}
+
 		@include media ($app-laptop) {
 			@include span-columns (4);
 			margin-bottom: 0;

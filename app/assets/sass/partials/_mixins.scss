@@ -44,12 +44,14 @@ $app-color-main-medium: #8e284e;
 $app-color-main-dark: #752141;
 
 @mixin btn ($border: $app-color-main-dark, $highlight: lighten($app-color-main, 10%), $from: $app-color-main, $to: $app-color-main-medium ) {
+	@include border-radius();
+	@include linear-gradient ($from, $to);
+	@include transition ( all 0s );
 	display: inline-block;
 	position: relative;
 	min-width: 150px;
 	height: 50px;
 	line-height: 20px;
-	// font-size: 20px;
 	padding: ($app-box-pad - 20);
 	margin: $app-pad*0.67 $app-pad*0.67 $app-pad*0.67 0;
 	text-align: center;
@@ -62,31 +64,28 @@ $app-color-main-dark: #752141;
 	border-bottom-width: 3px;
 	box-shadow: 0 1px 0 0 $highlight inset;
 	box-sizing: border-box;
-	@include border-radius();
-	@include linear-gradient ($from, $to);
-	@include transition ( all 0s );
 
 	&:hover,
 	&:focus {
+		@include linear-gradient ($app-color-alt, darken($app-color-alt, 6%));
 		color: $app-color-white;
 		text-shadow: 0 1px 1px $app-color-alt-dark;
 		border-color: $app-color-alt-dark;
 		box-shadow: 0 1px 0 0 $app-color-alt-light inset;
-		@include linear-gradient ($app-color-alt, darken($app-color-alt, 6%));
 	}
 
 	.dark & {
+		@include linear-gradient ($app-color-alt, darken($app-color-alt, 6%));
 		text-shadow: 0 1px 1px $app-color-alt-dark;
 		border-color: $app-color-alt-dark;
 		box-shadow: 0 1px 0 0 $app-color-alt-light inset;
-		@include linear-gradient ($app-color-alt, darken($app-color-alt, 6%));
 
 		&:hover,
 		&:focus {
+			@include linear-gradient ($from, $to);
 			text-shadow: 0 1px 1px $border;
 			border-color: $border;
 			box-shadow: 0 1px 0 0 $highlight inset;
-			@include linear-gradient ($from, $to);
 		}
 	}
 }

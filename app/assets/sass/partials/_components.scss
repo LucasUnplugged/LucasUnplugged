@@ -1,5 +1,3 @@
-
-
 // FORMS
 
 input[type='text'],
@@ -51,7 +49,6 @@ form {
 		color: $app-color-alert;
 	}
 }
-
 
 
 // BUTTONS
@@ -132,15 +129,20 @@ div.expand {
 
 
 // OTHER
+
+.upload,
 .dropzone {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
 	width: 100%;
-	min-height: 300px;
-	padding: $app-box-pad;
+	height: 300px;
 	text-align: center;
+}
+
+.dropzone {
+	padding: $app-box-pad;
 	border: 2px dashed $app-color-main;
 	@include border-radius;
 	cursor: pointer;
@@ -160,7 +162,9 @@ div.expand {
 	display: none;
 }
 
-// Loading
+
+// LOADING
+
 .loading,
 .loading:before,
 .loading:after {
@@ -211,15 +215,14 @@ div.expand {
 
 .loading:before,
 .loading:after {
-	&.dark,
 	.dark & {
 		background: $app-color-text;
 	}
-	&.medium,
+
 	.medium & {
 		background: $app-color-box;
 	}
-	&.light,
+
 	.light & {
 		background: $app-color-white;
 	}

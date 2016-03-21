@@ -1,3 +1,14 @@
+/* NOTE **********************
+ * Thanks for checking out my code!
+ * Some of the code in this section is VERY old,
+ * and not indicative of my current coding skill —
+ * it was addapted from my pre-Angular days, hence
+ * the ugly use of jQuery in here.
+ *
+ * If you'd like to see more recent code, check out my GitHub profile:
+ * https://github.com/LucasUnplugged/
+ */
+
 ( function() {
 	'use strict';
 
@@ -41,45 +52,6 @@
 				target = main.offset().top - bg.innerHeight();
 				scrollAdjustments();
 			}, 200 );
-
-			// NOTE **********************
-			// Thanks for checking out my code!
-			// This section is VERY old, and not indicative of my current coding skill.
-			// If you'd like to see more recent code, check out my GitHub profile:
-			// https://github.com/LucasUnplugged/
-
-			// Beautify the Skills section
-			jQuery( '.skills' ).each( function() {
-				var skills = jQuery( this ).html();
-
-				/*  LEGEND
-				 *
-				 *  5 Expert
-				 *  4 Advanced
-				 *  3 Intermediate
-				 *  2 Knowledgeable
-				 *  1 Novice
-				 */
-
-				// Expert
-				skills = skills.replace( /\: Expert/g, '<span class="on">&bull;</span><span class="on">&bull;</span><span class="on">&bull;</span><span class="on">&bull;</span><span class="on">&bull;</span>' );
-
-				// Advanced
-				skills = skills.replace( /\: Advanced/g, '<span class="on">&bull;</span><span class="on">&bull;</span><span class="on">&bull;</span><span class="on">&bull;</span><span class="off">&bull;</span>' );
-
-				// Intermediate
-				skills = skills.replace( /\: Intermediate/g, '<span class="on">&bull;</span><span class="on">&bull;</span><span class="on">&bull;</span><span class="off">&bull;</span><span class="off">&bull;</span>' );
-
-				// Knowledgeable
-				skills = skills.replace( /\: Knowledgeable/g, '<span class="on">&bull;</span><span class="on">&bull;</span><span class="off">&bull;</span><span class="off">&bull;</span><span class="off">&bull;</span>' );
-
-				// Novice
-				skills = skills.replace( /\: Novice/g, '<span class="on">&bull;</span><span class="off">&bull;</span><span class="off">&bull;</span><span class="off">&bull;</span><span class="off">&bull;</span>' );
-
-				// Apply changes
-				jQuery( this ).html( skills );
-			} );
-
 		} ); // END of jQuery( document ).ready
 
 		/**

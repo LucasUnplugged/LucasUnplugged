@@ -1,0 +1,10 @@
+{
+	"apiUrl": {
+		"upload": "https://upload.wistia.com",
+		"list": "https://api.wistia.com/v1/medias.json"
+	},
+	"apiKey": {
+		"api_password": "e22a5ec4b06f2aceb845a7081347ce9f9b2991a7cab8870e965b3db664be5455"
+	},
+	"apiTimeout": 5000
+}
