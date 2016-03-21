@@ -514,6 +514,10 @@ main {
 		}
 	}
 
+	.icon-stack [class^='icon-']:before {
+		display: block;
+	}
+
 	.icon-grouping {
 		display: block;
 		margin-bottom: $app-box-pad/2;
