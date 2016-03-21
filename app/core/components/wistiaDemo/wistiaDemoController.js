@@ -52,7 +52,6 @@
 		} );
 
 		$rootScope.$on( 'videoUploadSuccessful', function( event, args ) {
-			console.warn( 'videoUploadSuccessful' );
 			wistiaVM.uploadMessage = args.uploadMessage;
 
 			// If processing failed, inform the user
@@ -115,21 +114,17 @@
 					}
 				},
 				error: function( file, message ) {
-					if( message === "You can't upload files of this type." ) {
+					if( file.type.indexOf( 'video' ) === -1 && message === "You can't upload files of this type." ) {
 						$scope.$apply( function() {
 							console.warn( 'Invalid file type. Type "' + file.type + '" is not a video format.' );
 							wistiaVM.failMessage = 'Invalid file type for file "' + file.name + '." Only video files are accepted!';
 							wistiaVM.uploading = false;
 							wistiaVM.requestCompleted = true;
+
+							// Display uploaded message for a brief period
+							delayedHideNotification();
 						} );
 					}
-				},
-				complete: function() {
-					$scope.$apply( function() {
-
-						// Display uploaded message for a brief period
-						delayedHideNotification();
-					} );
 				}
 			}
 		};
