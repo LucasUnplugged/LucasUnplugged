@@ -39,8 +39,10 @@
 
 				<div class="notifications-popup">
 					<em
-						ng-show="wistiaVM.requestCompleted"
+						ng-show="wistiaVM.uploadMessage"
 						ng-bind="wistiaVM.uploadMessage"></em>
+
+					<br ng-show="wistiaVM.uploadMessage && wistiaVM.failMessage">
 
 					<em
 						ng-show="wistiaVM.failMessage"

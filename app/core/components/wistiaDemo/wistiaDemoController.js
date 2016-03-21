@@ -187,6 +187,7 @@
 		function delayedHideNotification() {
 			$timeout( function() {
 				wistiaVM.requestCompleted = false;
+				wistiaVM.uploadMessage = '';
 				wistiaVM.failMessage = '';
 				wistiaVM.failedUploads = [];
 			}, 7000 );
