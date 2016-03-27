@@ -1,8 +1,9 @@
 // GENERAL
 
 html {
+	width:100%;
+	overflow-x:hidden;
 	-webkit-font-smoothing: antialiased;
-	overflow-y: scroll;
 	/* killing 300ms touch delay in IE */
 	-ms-touch-action: manipulation;
 	    touch-action: manipulation;
@@ -24,7 +25,6 @@ body {
 	line-height: $app-line-height;
 	font-family: $app-font-main;
 	color: $app-color-text;
-	overflow: hidden;
 
 	&.is-loading {
 		background: $app-color-white url('../img/portfolio/loading.gif') center center no-repeat;
