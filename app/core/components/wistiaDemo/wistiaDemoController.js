@@ -114,7 +114,7 @@
 					}
 				},
 				error: function( file, message ) {
-					if( file.type.indexOf( 'video' ) === -1 && message === "You can't upload files of this type." ) {
+					if ( file.type.indexOf( 'video' ) === -1 && message === "You can't upload files of this type." ) {
 						$scope.$apply( function() {
 							console.warn( 'Invalid file type. Type "' + file.type + '" is not a video format.' );
 							wistiaVM.failMessage = 'Invalid file type for file "' + file.name + '." Only video files are accepted!';
