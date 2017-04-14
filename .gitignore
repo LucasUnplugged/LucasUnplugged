@@ -19,3 +19,5 @@ public/assets/css
 public/components
 public/models
 public/shared
+checkstyle.xml
+codestyle.xml
