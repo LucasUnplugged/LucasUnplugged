@@ -15,7 +15,6 @@ npm-debug.log
 node_modules
 
 public/assets/libs
-public/assets/css
 public/components
 public/models
 public/shared

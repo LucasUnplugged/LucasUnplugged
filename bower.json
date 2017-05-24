@@ -1,17 +1,17 @@
 {
-	"name": "Peerless.io",
-	"version": "0.1.0",
-	"license": "MIT",
-	"authors": [
-		"Lucas Castro <lucas.castro@gmail.com>"
-	],
-	"ignore": [
-		"node_modules",
-		"bower_components"
-	],
-	"dependencies": {
-		"angular": "latest",
-		"angular-route": "latest",
-		"jquery": "latest"
-	}
+    "name": "lucasunplugged.com",
+    "version": "0.1.0",
+    "license": "MIT",
+    "authors": [
+        "Lucas Castro <lucas.castro@gmail.com>"
+    ],
+    "ignore": [
+        "node_modules",
+        "bower_components"
+    ],
+    "dependencies": {
+        "angular": "latest",
+        "angular-route": "latest",
+        "jquery": "latest"
+    }
 }

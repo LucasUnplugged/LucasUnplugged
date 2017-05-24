@@ -27,5 +27,10 @@
     "node-neat": "^1.7.2",
     "node-sass": "^3.4.0"
   },
-  "jscsConfig": ".jscsrc"
+  "jscsConfig": ".jscsrc",
+  "scripts": {
+    "build:grunt": "grunt build",
+    "build": "npm run build:grunt",
+    "run": "npm run build && npm start"
+  }
 }
